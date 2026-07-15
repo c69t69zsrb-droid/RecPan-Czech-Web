@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 90%;
+    --foreground: 213 32% 10%;
+    --card: 0 0% 90%;
+    --card-foreground: 213 32% 10%;
+    --popover: 0 0% 90%;
+    --popover-foreground: 213 32% 10%;
+    --primary: 107 53% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 213 32% 10%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 213 10% 40%;
+    --accent: 107 53% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
+    --ring: 107 53% 47%;
+    --chart-1: 107 53% 47%;
+    --chart-2: 213 32% 10%;
+    --chart-3: 0 0% 60%;
+    --chart-4: 0 0% 90%;
+    --chart-5: 107 30% 70%;
+    --radius: 0.5rem;
+    --font-heading: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 0 0% 90%;
+    --sidebar-foreground: 213 32% 10%;
+    --sidebar-primary: 107 53% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 90%;
+    --sidebar-accent-foreground: 213 32% 10%;
+    --sidebar-border: 0 0% 80%;
+    --sidebar-ring: 107 53% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    padding-left: 8px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar - hide default */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Snap scrolling */
+.snap-container {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
+}
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 40vh;
+}
+
+/* Horizontal scroll hide scrollbar */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+.horizontal-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
