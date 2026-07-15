@@ -1,0 +1,135 @@
+export const newsCategories = [
+  { key: "all", cs: "Vše", en: "All" },
+  { key: "expansion", cs: "Expanze", en: "Expansion" },
+  { key: "technology", cs: "Technologie", en: "Technology" },
+  { key: "facility", cs: "Zařízení", en: "Facility" },
+  { key: "events", cs: "Akce", en: "Events" },
+  { key: "partnership", cs: "Partnerství", en: "Partnership" },
+];
+
+export const getCategoryLabel = (key, lang) => {
+  const cat = newsCategories.find((c) => c.key === key);
+  return cat ? cat[lang] : "";
+};
+
+export const newsArticles = [
+  {
+    slug: "recpan-at-intersolar-europe",
+    categoryKey: "events",
+    image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/7116ae35d_Screenshot_2026-07-07_at_225611.png",
+    translations: {
+      cs: {
+        title: "RecPan na veletrhu Intersolar Europe",
+        category: "Akce",
+        date: "17. čvn 2026",
+        excerpt: "Náš tým se zúčastní nejvýznamnějšího evropského veletrhu solární energetiky v Mnichově za účelem obchodních schůzek s partnery a zákazníky.",
+        content: [
+          "Tým společnosti RecPan se zúčastní veletrhu Intersolar Europe 2026 v Mnichově, nejvýznamnější evropské události zaměřené na solární energetiku. V průběhu veletrhu se budeme setkávat s partnery, zákazníky i dalšími odborníky z oblasti fotovoltaiky a recyklace.",
+          "Během akce uskutečníme řadu obchodních schůzek zaměřených na recyklaci vysloužilých fotovoltaických panelů, materiálové využití, udržitelné nakládání s odpady a možnosti budoucí spolupráce na evropských trzích.",
+          "Intersolar Europe představuje ideální příležitost pro výměnu zkušeností, navázání nových partnerství i prohloubení spolupráce se stávajícími partnery. Těšíme se na setkání se společnostmi, které sdílejí naši vizi efektivnější a udržitelnější recyklace fotovoltaických panelů.",
+          "Pokud se veletrhu Intersolar Europe také zúčastníte a měli byste zájem se s naším týmem osobně setkat, rádi si s vámi domluvíme schůzku. Kontaktovat nás můžete prostřednictvím formuláře na našem webu.",
+        ],
+        quote: "Tým RecPan",
+      },
+      en: {
+        title: "RecPan at Intersolar Europe Trade Fair",
+        category: "Events",
+        date: "June 17, 2026",
+        excerpt: "Our team will attend Europe's leading solar energy trade fair in Munich for business meetings with partners and customers.",
+        content: [
+          "The RecPan team will attend Intersolar Europe 2026 in Munich, the most significant European event focused on solar energy. During the trade fair, we will meet with partners, customers, and other professionals from the fields of photovoltaics and recycling.",
+          "Throughout the event, we will hold a series of business meetings focused on the recycling of end-of-life photovoltaic panels, material recovery, sustainable waste management, and opportunities for future collaboration across European markets.",
+          "Intersolar Europe represents an ideal opportunity for exchanging experiences, establishing new partnerships, and deepening cooperation with existing partners. We look forward to meeting companies that share our vision of more efficient and sustainable recycling of photovoltaic panels.",
+          "If you are also attending Intersolar Europe and would like to meet with our team in person, we would be glad to arrange a meeting. You can reach us through the contact form on our website.",
+        ],
+        quote: "RecPan Team",
+      },
+    },
+  },
+  {
+    slug: "recpan-begins-international-expansion",
+    categoryKey: "expansion",
+    image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/3e82f0f86_NewProject1.png",
+    imagePosition: "55% 72%",
+    translations: {
+      cs: {
+        title: "RecPan zahajuje mezinárodní expanzi",
+        category: "Expanze",
+        date: "11. čvn 2026",
+        subtitle: "RecPan rozšiřuje své působení s cílem vybudovat síť regionálních center pro recyklaci fotovoltaických panelů v Evropě.",
+        excerpt: "RecPan rozšiřuje své působení za hranice Česka a připravuje regionální recyklační centra ve Španělsku a Itálii na základě vlastní technologie dosahující 96% míry získání materiálů.",
+        content: [
+          "Česká technologicko-recyklační společnost specializující se na zpracování fotovoltaických panelů na konci životnosti, oficiálně zahájila další fázi svého dlouhodobého rozvoje — mezinárodní expanzi. Krok navazuje na dokončení vývoje vlastní recyklační technologie a uvedení do provozu prvního průmyslového recyklačního centra v Příbrami, jehož roční zpracovatelská kapacita činí **7 000 tun** vyřazených solárních panelů.",
+          "Po ověření procesů v průmyslovém měřítku společnost připravuje vstup na zahraniční trhy. Prvními cílovými zeměmi jsou **Španělsko** a **Itálie**, kde již probíhá příprava projektů ve spolupráci s místními partnery. Dalším plánovaným trhem je **Austrálie**, který představuje první krok RecPan mimo evropský kontinent.",
+          "Strategický záměr společnosti přesahuje provoz izolovaných recyklačních linek. RecPan buduje síť regionálních recyklačních center, která budou zpracovávat vysloužilé fotovoltaické panely co nejblíže místu jejich vzniku. Tato architektura snižuje náklady na dopravu a související logistické emise, zvyšuje celkovou efektivitu recyklace a podporuje rozvoj skutečně cirkulární ekonomiky, ve které získané materiály zůstávají v regionálních dodavatelských řetězcích.",
+          "Základem celé expanze je naše vlastní technologická platforma. Kombinuje pokročilou mechanickou recyklaci s patentovanými procesy umožňujícími získávání strategických surovin, jako jsou sklo, hliník, měď, stříbro a křemík, ve vysoké čistotě.",
+          "Recyklací pro nás celý proces nekončí. Naším dlouhodobým cílem je uzavírat materiálový cyklus přímo v rámci společnosti. Vedle návratu druhotných surovin zpět do průmyslu připravujeme také vlastní produkty s vysokou přidanou hodnotou, které budou vznikat právě z recyklovaných materiálů.",
+          "Význam této infrastruktury bude v následujících letech rychle narůstat. Fotovoltaické elektrárny budované v uplynulých desetiletích budou postupně dosahovat konce své životnosti a množství vyřazených panelů bude každoročně výrazně růst. Současně se zpřísňují evropské požadavky na jejich ekologické zpracování, což vytváří potřebu moderních recyklačních kapacit dostupných napříč Evropou.",
+          "Naše mezinárodní expanze představuje první krok k vybudování celosvětové sítě regionálních recyklačních center. Věříme, že budoucnost fotovoltaiky nekončí výrobou elektřiny. Pokračuje návratem cenných materiálů zpět do průmyslu, kde mohou znovu sloužit při výrobě nových technologií.",
+        ],
+        quote: "Tým RecPan",
+      },
+      en: {
+        title: "RecPan Begins International Expansion",
+        category: "Expansion",
+        date: "June 11, 2026",
+        subtitle: "RecPan is expanding its reach to build a network of regional solar panel recycling centers across Europe.",
+        excerpt: "RecPan is expanding beyond the Czech Republic, preparing regional recycling facilities in Spain and Italy powered by its proprietary technology achieving 96% material recovery.",
+        content: [
+          "The Czech technology and recycling company specializing in the processing of end-of-life photovoltaic panels has officially launched the next phase of its long-term development — international expansion. This step follows the completion of its proprietary recycling technology and the commissioning of its first industrial recycling facility in Příbram, with an annual processing capacity of **7,000 tonnes** of end-of-life solar panels.",
+          "Having validated its processes at industrial scale, the company is now preparing to enter foreign markets. The first target countries are **Spain** and **Italy**, where projects are already underway in cooperation with local partners. The next planned market is **Australia**, representing RecPan's first step beyond the European continent.",
+          "The company's strategic vision goes beyond operating isolated recycling lines. RecPan is building a network of regional recycling centers that process end-of-life photovoltaic panels as close as possible to where they arise. This architecture reduces transportation costs and associated logistics emissions, increases overall recycling efficiency, and supports the development of a truly circular economy in which recovered materials remain within regional supply chains.",
+          "The foundation of the entire expansion is our proprietary technology platform. It combines advanced mechanical recycling with patented processes for recovering strategic raw materials — such as glass, aluminum, copper, silver, and silicon — in high purity.",
+          "For us, recycling is not where the process ends. Our long-term goal is to close the material loop within the company itself. Alongside returning secondary raw materials to industry, we are also developing our own high-value products made from recycled materials.",
+          "The importance of this infrastructure will grow rapidly in the coming years. Solar power plants built over the past decades will gradually reach the end of their service life, and the volume of decommissioned panels will increase significantly each year. At the same time, European requirements for their environmentally sound processing are tightening, creating a need for modern recycling capacity available across Europe.",
+          "Our international expansion represents the first step toward building a global network of regional recycling centers. We believe that the future of photovoltaics does not end with electricity generation. It continues with the return of valuable materials to industry, where they can serve again in the production of new technologies.",
+        ],
+        quote: "RecPan Team",
+      },
+    },
+  },
+  {
+    slug: "new-recycling-facility-under-development",
+    categoryKey: "facility",
+    image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/43bbacbd4_IMG_07013.jpg",
+    contentImage: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/c4ac20600_IMG_06852.jpg",
+    translations: {
+      cs: {
+        title: "Výstavba prvního průmyslového recyklačního centra v Příbrami",
+        category: "Zařízení",
+        date: "20. lis 2025",
+        subtitle: "V Příbrami připravujeme spuštění našeho prvního průmyslového recyklačního centra, které se stane základem budoucí evropské sítě regionálních zařízení.",
+        excerpt: "Připravujeme spuštění prvního průmyslového recyklačního centra v Příbrami. Zařízení bude zpracovávat tisíce tun fotovoltaických panelů ročně s využitím naší vlastní recyklační technologie.",
+        content: [
+          "Pokračujeme v přípravách našeho prvního průmyslového recyklačního centra v Příbrami. Pro RecPan to představuje klíčový milník — přechod od vývoje a validace technologie k jejímu průmyslovému nasazení v reálném měřítku. Vše, co jsme dosud ověřili v laboratorních a poloprovozních podmínkách, nyní převádíme do kontinuálního provozu.",
+          "Výrobní hala, jejíž interiér je zachycen na úvodní fotografii, prochází komplexními stavebními úpravami, jejichž cílem je připravit prostor pro novou generaci naší recyklační linky — navrženou výhradně pro zpracování fotovoltaických panelů na konci životnosti. Úpravy zahrnují posílení podlahových konstrukcí, instalaci dopravníků a odvětrávací techniky i jasné oddělení technologických sekcí.",
+          "Naše technologie kombinuje pokročilou mechanickou separaci s patentovanými procesy pro získávání strategických surovin ve vysoké čistotě. Celý proces je navržen tak, aby z každého zpracovaného panelu maximalizoval výtěžnost hodnotných materiálových frakcí — skla, hliníku, mědi, stříbra a křemíku — a zároveň systematicky minimalizoval podíl materiálu, který nelze dále využít. Jednotlivé frakce jsou přitom sledovány a měřeny v každém kroku zpracování.",
+          "Celé zařízení navrhujeme s důrazem na vysokou míru automatizace a efektivní materiálové toky. Automatizace nám umožňuje udržet konzistentní kvalitu výstupních frakcí nezávisle na složení vstupního materiálu a zároveň dlouhodobě snižovat provozní náklady. Stejný přístup uplatňujeme i u energetické náročnosti — proces navrhujeme tak, aby celková energetická bilance recyklace zůstala příznivá vůči získaným surovinám. Layout haly připravujeme tak, aby případné rozšíření kapacity nevyžadovalo zásadní stavební zásahy.",
+          "Zkušenosti z výstavby a spouštění tohoto centra jsou pro nás strategicky stejně cenné jako samotný provoz. Každý detail — od materiálových toků přes řízení procesů až po měření kvality a údržbu — systematicky dokumentujeme a promítáme jej do přípravy dalších regionálních zařízení, která plánujeme v dalších evropských zemích.",
+          "Po plném spuštění bude centrum v Příbrami zpracovávat tisíce tun fotovoltaických modulů ročně. Získané materiály budeme vracet zpět do průmyslu nebo dále zpracovávat v rámci vlastního hodnotového řetězce. Sklo, hliník a měď povedeme do existujících průmyslových dodavatelských řetězců. Křemík a stříbro, u nichž náš proces dosahuje vysoké čistoty, otevírají cestu k jejich reintegraci do výroby elektroniky nebo nových FV článků, a tím k skutečnému uzavření materiálového cyklu.",
+          "Potřeba této infrastruktury v následujících letech rychle poroste. Fotovoltaická kapacita instalovaná v Evropě v uplynulém desetiletí se blíží ke konci své provozní životnosti a regulační rámec Evropské unie postupně rozšiřuje odpovědnost výrobce i na fotovoltaické produkty. Průmyslově dostupná recyklační kapacita tak přestává být volbou a stává se součástí základní infrastruktury přechodu na obnovitelné zdroje. To vytváří tlak na dostupnou, transparentní a měřitelnou kapacitu pro správu panelů na konci životnosti.",
+          "Příbramské centrum nebudujeme jako izolovaný projekt. Chápeme jej jako první článek budoucí sítě — jako model, který chceme postupně replikovat v dalších evropských zemích, a to vždy s cílem zpracovávat materiál co nejblíže místu jeho vzniku. Toto zařízení představuje první krok na naší cestě k vybudování moderní evropské infrastruktury pro recyklaci FV panelů. Těšíme se, že se s vámi budeme o další milníky dělit v následujících měsících.",
+          "O průběhu výstavby i přípravách na spuštění provozu budeme pravidelně informovat v dalších aktualizacích.",
+        ],
+      },
+      en: {
+        title: "Construction of the First Industrial Recycling Facility in Příbram",
+        category: "Facility",
+        date: "November 20, 2025",
+        subtitle: "In Příbram, we are preparing to launch our first industrial recycling facility, which will become the foundation of a future European network of regional plants.",
+        excerpt: "We are preparing to launch our first industrial recycling facility in Příbram. The plant will process thousands of tonnes of photovoltaic panels annually using our proprietary recycling technology.",
+        content: [
+          "We are continuing preparations for our first industrial recycling facility in Příbram. For RecPan, this represents a key milestone — the transition from technology development and validation to industrial deployment at real scale. Everything we have validated in laboratory and pilot conditions is now being translated into continuous operation.",
+          "The production hall, whose interior is captured in the opening photograph, is undergoing comprehensive construction modifications aimed at preparing the space for a new generation of our recycling line — designed exclusively for processing end-of-life photovoltaic panels. The modifications include reinforcing floor structures, installing conveyors and ventilation systems, and clearly delineating technological sections.",
+          "Our technology combines advanced mechanical separation with patented processes for recovering strategic raw materials in high purity. The entire process is designed to maximize the yield of valuable material fractions from each processed panel — glass, aluminum, copper, silver, and silicon — while systematically minimizing the proportion of material that cannot be further utilized. Each fraction is tracked and measured at every step of processing.",
+          "We are designing the entire facility with a strong emphasis on automation and efficient material flows. Automation allows us to maintain consistent quality of output fractions regardless of input material composition, while also reducing operating costs over the long term. We apply the same approach to energy consumption — designing the process so that the overall energy balance of recycling remains favorable relative to the recovered raw materials. The hall layout is being prepared so that any future capacity expansion will not require major structural interventions.",
+          "The experience from building and commissioning this facility is strategically as valuable to us as the operation itself. Every detail — from material flows to process control, quality measurement, and maintenance — is systematically documented and incorporated into the preparation of future regional facilities we plan in other European countries.",
+          "Once fully operational, the Příbram facility will process thousands of tonnes of photovoltaic modules annually. Recovered materials will be returned to industry or further processed within our own value chain. Glass, aluminum, and copper will be directed into existing industrial supply chains. Silicon and silver, where our process achieves high purity, open the path to their reintegration into electronics manufacturing or new PV cells, and thus to truly closing the material loop.",
+          "The need for this infrastructure will grow rapidly in the coming years. Photovoltaic capacity installed in Europe over the past decade is approaching the end of its operational life, and the European Union's regulatory framework is gradually extending extended producer responsibility to photovoltaic products. Industrially available recycling capacity is thus no longer a choice but part of the basic infrastructure of the renewable energy transition. This creates pressure for accessible, transparent, and measurable capacity for end-of-life panel management.",
+          "We are not building the Příbram facility as an isolated project. We see it as the first link in a future network — a model we intend to gradually replicate in other European countries, always with the goal of processing material as close as possible to where it arises. This facility represents the first step on our journey to build modern European infrastructure for PV panel recycling. We look forward to sharing further milestones with you in the coming months.",
+          "We will continue to report regularly on construction progress and preparations for operational launch in future updates.",
+        ],
+      },
+    },
+  },
+];
