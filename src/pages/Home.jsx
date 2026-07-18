@@ -16,6 +16,7 @@ import DataFooter from "@/components/site/DataFooter";
 import FacilitySection from "@/components/site/FacilitySection";
 import SEO, { ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA } from "@/components/SEO";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -40,7 +41,8 @@ export default function Home() {
       <SEO
         title={t("seo.home.title")}
         description={t("seo.home.desc")}
-        path="/"
+        path={buildPath("home", language)}
+        language={language}
         locale={language === "cs" ? "cs_CZ" : "en_US"}
         structuredData={[ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA]}
       />

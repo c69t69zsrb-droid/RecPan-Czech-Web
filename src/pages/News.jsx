@@ -6,6 +6,7 @@ import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import { newsArticles, newsCategories } from "@/data/newsArticles";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 import SEO from "@/components/SEO";
 
 export default function News() {
@@ -23,7 +24,8 @@ export default function News() {
       <SEO
         title={t("seo.news.title")}
         description={t("news.pageDesc")}
-        path="/news"
+        path={buildPath("news", language)}
+        language={language}
         locale={language === "cs" ? "cs_CZ" : "en_US"}
       />
       <Navigation />
@@ -77,10 +79,10 @@ export default function News() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              onClick={() => navigate(`/news/${article.slug}`)}
+              onClick={() => navigate(buildPath("article", language, { slug: article.slug }))}
               role="link"
               tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter") navigate(`/news/${article.slug}`); }}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate(buildPath("article", language, { slug: article.slug })); }}
               className="group cursor-pointer"
             >
               <div className="relative h-56 lg:h-64 overflow-hidden rounded-lg mb-5 bg-obsidian/5">

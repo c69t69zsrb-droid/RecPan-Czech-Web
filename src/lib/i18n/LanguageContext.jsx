@@ -1,25 +1,30 @@
-import React, { createContext, useState, useEffect, useCallback, useMemo } from "react";
+import { createContext, useCallback, useEffect, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { translations } from "@/lib/i18n/translations";
+import { getLanguageFromPath, getTranslatedPath } from "@/lib/i18n/routes";
 
 export const LanguageContext = createContext();
 
 const STORAGE_KEY = "recpan-language";
-const DEFAULT_LANGUAGE = "cs";
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguageState] = useState(() => {
-    if (typeof window === "undefined") return DEFAULT_LANGUAGE;
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    return saved === "cs" || saved === "en" ? saved : DEFAULT_LANGUAGE;
-  });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const language = useMemo(
+    () => getLanguageFromPath(location.pathname),
+    [location.pathname]
+  );
 
   const setLanguage = useCallback((lang) => {
-    setLanguageState(lang);
-  }, []);
+    const translatedPath = getTranslatedPath(location.pathname, lang);
+    window.localStorage.setItem(STORAGE_KEY, lang);
+    navigate(translatedPath);
+  }, [location.pathname, navigate]);
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, language);
     document.documentElement.lang = language;
+    window.localStorage.setItem(STORAGE_KEY, language);
   }, [language]);
 
   const t = useCallback(

@@ -7,6 +7,7 @@ import OpenPositions from "@/components/career/OpenPositions";
 import HiringProcess from "@/components/career/HiringProcess";
 import SEO, { breadcrumbData } from "@/components/SEO";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 
 export default function Career() {
   const positionsRef = useRef(null);
@@ -26,11 +27,12 @@ export default function Career() {
       <SEO
         title={t("seo.career.title")}
         description={t("seo.career.desc")}
-        path="/career"
+        path={buildPath("career", language)}
+        language={language}
         locale={language === "cs" ? "cs_CZ" : "en_US"}
         structuredData={breadcrumbData([
-          { name: language === "cs" ? "Domů" : "Home", path: "/" },
-          { name: t("career.label"), path: "/career" },
+          { name: language === "cs" ? "Domů" : "Home", path: buildPath("home", language) },
+          { name: t("career.label"), path: buildPath("career", language) },
         ])}
       />
       <Navigation />

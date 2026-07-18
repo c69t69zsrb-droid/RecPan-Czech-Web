@@ -6,6 +6,7 @@ import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import { newsArticles } from "@/data/newsArticles";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath, translateArticleSlug } from "@/lib/i18n/routes";
 import SEO, { articleData, breadcrumbData } from "@/components/SEO";
 
 const articleDates = {
@@ -28,16 +29,17 @@ export default function Article() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
-  const article = newsArticles.find((a) => a.slug === slug);
+  const enSlug = translateArticleSlug(slug, "en");
+  const article = newsArticles.find((a) => a.slug === enSlug);
 
   if (!article) {
     return (
       <div className="bg-titanium min-h-screen flex items-center justify-center">
-        <SEO title={t("article.notFound")} path="/news" noindex />
+        <SEO title={t("article.notFound")} path={buildPath("news", language)} language={language} noindex />
         <div className="text-center">
           <h1 className="font-heading text-3xl font-semibold text-obsidian mb-4">{t("article.notFound")}</h1>
           <Link
-            to="/news"
+            to={buildPath("news", language)}
             className="font-heading text-xs uppercase tracking-[0.15em] text-brand-green hover:text-obsidian transition-colors">
 
             {t("article.back")}
@@ -54,24 +56,25 @@ export default function Article() {
       <SEO
         title={`${tr.title} | RecPan`}
         description={tr.excerpt}
-        path={`/news/${slug}`}
+        path={buildPath("article", language, { slug: article.slug })}
         image={article.image}
         type="article"
+        language={language}
         locale={language === "cs" ? "cs_CZ" : "en_US"}
         structuredData={[
           articleData({
             title: tr.title,
             description: tr.excerpt,
             image: article.image,
-            path: `/news/${slug}`,
-            datePublished: articleDates[slug],
-            dateModified: articleDates[slug],
+            path: buildPath("article", language, { slug: article.slug }),
+            datePublished: articleDates[article.slug],
+            dateModified: articleDates[article.slug],
             articleSection: tr.category,
           }),
           breadcrumbData([
-            { name: language === "cs" ? "Domů" : "Home", path: "/" },
-            { name: language === "cs" ? "Aktuality" : "News", path: "/news" },
-            { name: tr.title, path: `/news/${slug}` },
+            { name: language === "cs" ? "Domů" : "Home", path: buildPath("home", language) },
+            { name: language === "cs" ? "Aktuality" : "News", path: buildPath("news", language) },
+            { name: tr.title, path: buildPath("article", language, { slug: article.slug }) },
           ]),
         ]}
       />
@@ -80,7 +83,7 @@ export default function Article() {
       {/* Back button */}
       <div className="pt-[162px] px-6 md:px-[4.166%]">
         <Link
-          to="/news"
+          to={buildPath("news", language)}
           className="font-heading text-xs uppercase tracking-[0.15em] text-obsidian/40 hover:text-brand-green transition-colors flex items-center gap-2">
 
           <ArrowLeft size={14} />
@@ -180,10 +183,10 @@ export default function Article() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              onClick={() => navigate(`/news/${rel.slug}`)}
+              onClick={() => navigate(buildPath("article", language, { slug: rel.slug }))}
               role="link"
               tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter") navigate(`/news/${rel.slug}`); }}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate(buildPath("article", language, { slug: rel.slug })); }}
               className="group cursor-pointer">
             
               <div className="relative h-48 overflow-hidden rounded-lg mb-4 bg-obsidian/5">
