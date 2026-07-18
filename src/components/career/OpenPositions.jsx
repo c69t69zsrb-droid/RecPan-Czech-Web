@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { MapPin, Clock, Banknote, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { careerPositions } from "@/data/careerPositions";
 
-export default function OpenPositions({ onApply }) {
+export default function OpenPositions() {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section id="positions" className="px-6 md:px-[4.166%] py-16 md:py-20 border-t border-obsidian/10">
@@ -32,9 +34,10 @@ export default function OpenPositions({ onApply }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="border border-obsidian/10 rounded-lg p-8 md:p-10 hover:shadow-md transition-all duration-300 flex flex-col"
+            onClick={() => navigate(`/career/${pos.id}`)}
+            className="group border border-obsidian/10 rounded-lg p-8 md:p-10 hover:border-brand-green/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
           >
-            <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.01em] text-obsidian mb-4">
+            <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.01em] text-obsidian mb-4 group-hover:text-brand-green transition-colors duration-300">
               {pos.title[language]}
             </h3>
 
@@ -50,16 +53,19 @@ export default function OpenPositions({ onApply }) {
             </div>
 
             <p className="font-heading text-sm leading-relaxed text-obsidian/50 font-light mb-6 flex-1">
-              {pos.description[language]}
+              {pos.shortDescription[language]}
             </p>
 
-            <button
-              onClick={() => onApply(pos.title[language])}
-              className="group flex items-center gap-2 font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian hover:text-brand-green transition-colors mt-auto"
-            >
-              {t("career.moreInfo")}
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <div className="flex items-center justify-between pt-4 border-t border-obsidian/5">
+              <span className="flex items-center gap-1.5 font-heading text-lg font-semibold text-brand-green">
+                <Banknote size={16} />
+                {pos.salary[language]}
+              </span>
+              <span className="flex items-center gap-2 font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/40 group-hover:text-brand-green transition-colors duration-300">
+                {t("career.detailButton")}
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
           </motion.div>
         ))}
       </div>

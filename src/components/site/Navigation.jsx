@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,6 +12,17 @@ export default function Navigation({ onNavigate }) {
   const [hoveredTint, setHoveredTint] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const navLinks = [
     { label: t("nav.home"), href: "#hero", tint: "bg-brand-green/[0.03]" },
@@ -51,14 +62,15 @@ export default function Navigation({ onNavigate }) {
   return (
     <>
       {/* Top bar */}
-      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between md:px-[4.166%] px-5">
+      <header className="fixed top-0 left-0 right-0 z-[2000] flex items-center justify-between md:px-[4.166%] px-5 pointer-events-none">
         <a
           href="#hero"
-          onClick={(e) => {e.preventDefault();handleLogoClick();}}>
+          onClick={(e) => {e.preventDefault();handleLogoClick();}}
+          className="pointer-events-auto">
           
           <Logo size="sm" />
         </a>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 pointer-events-auto">
           <LanguageSwitcher />
           <button
             onClick={() => setOpen(true)}
@@ -77,18 +89,18 @@ export default function Navigation({ onNavigate }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-obsidian/10"
+            className="fixed inset-0 z-[3000] bg-obsidian/10"
             onClick={() => setOpen(false)} />
           
             {hoveredTint &&
-          <div className={`fixed inset-0 z-50 pointer-events-none transition-colors duration-500 ${hoveredTint}`} />
+          <div className={`fixed inset-0 z-[2999] pointer-events-none transition-colors duration-500 ${hoveredTint}`} />
           }
             <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 bottom-0 w-[85%] md:w-[30%] bg-titanium z-50 flex flex-col justify-between p-8 md:p-12 border-l border-obsidian/10 overflow-y-auto">
+            className="fixed right-0 top-0 bottom-0 w-[85%] md:w-[30%] bg-titanium z-[3000] flex flex-col justify-between p-8 md:p-12 border-l border-obsidian/10 overflow-y-auto">
             
               <div className="flex items-center justify-between">
                 <Logo size="sm" />

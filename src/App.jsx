@@ -11,6 +11,7 @@ import Home from '@/pages/Home';
 import News from '@/pages/News';
 import Article from '@/pages/Article';
 import Career from '@/pages/Career';
+import PositionDetail from '@/pages/PositionDetail';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -43,6 +44,7 @@ const AuthenticatedApp = () => {
       <Route path="/news" element={<News />} />
       <Route path="/news/:slug" element={<Article />} />
       <Route path="/career" element={<Career />} />
+      <Route path="/career/:positionId" element={<PositionDetail />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
