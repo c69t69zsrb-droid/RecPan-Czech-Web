@@ -1,11 +1,10 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import { newsArticles } from "@/data/newsArticles";
-import { getPreviousPath } from "@/lib/navigationHistory";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const renderFormattedText = (text) => {
@@ -24,25 +23,17 @@ export default function Article() {
   const { t, language } = useLanguage();
   const article = newsArticles.find((a) => a.slug === slug);
 
-  const handleBackToNews = () => {
-    if (getPreviousPath() === "/news") {
-      navigate(-1);
-    } else {
-      navigate("/news");
-    }
-  };
-
   if (!article) {
     return (
       <div className="bg-titanium min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="font-heading text-3xl font-semibold text-obsidian mb-4">{t("article.notFound")}</h1>
-          <button
-            onClick={handleBackToNews}
+          <Link
+            to="/news"
             className="font-heading text-xs uppercase tracking-[0.15em] text-brand-green hover:text-obsidian transition-colors">
-            
+
             {t("article.back")}
-          </button>
+          </Link>
         </div>
       </div>);
   }
@@ -55,14 +46,14 @@ export default function Article() {
       <Navigation />
 
       {/* Back button */}
-      <div className="pt-28 px-6 md:px-[4.166%]">
-        <button
-          onClick={handleBackToNews}
+      <div className="pt-[162px] px-6 md:px-[4.166%]">
+        <Link
+          to="/news"
           className="font-heading text-xs uppercase tracking-[0.15em] text-obsidian/40 hover:text-brand-green transition-colors flex items-center gap-2">
-          
+
           <ArrowLeft size={14} />
           {t("article.back")}
-        </button>
+        </Link>
       </div>
 
       {/* Hero Image */}
