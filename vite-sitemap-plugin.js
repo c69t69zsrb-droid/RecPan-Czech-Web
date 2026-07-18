@@ -3,49 +3,93 @@ import { careerPositions } from './src/data/careerPositions.js';
 
 const SITE_URL = 'https://rec-pan.eu';
 
+const articleSlugCs = {
+  'recpan-at-intersolar-europe': 'recpan-na-intersolar-europe',
+  'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
+  'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
+};
+
 const articleDates = {
   'recpan-at-intersolar-europe': '2026-06-17',
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',
 };
 
+function buildEnPath(route, params = {}) {
+  switch (route) {
+    case 'home': return '/';
+    case 'news': return '/news';
+    case 'article': return `/news/${params.slug}`;
+    case 'career': return '/career';
+    case 'position': return `/career/${params.id}`;
+    default: return '/';
+  }
+}
+
+function buildCsPath(route, params = {}) {
+  switch (route) {
+    case 'home': return '/cs';
+    case 'news': return '/cs/aktuality';
+    case 'article': return `/cs/aktuality/${articleSlugCs[params.slug] || params.slug}`;
+    case 'career': return '/cs/kariera';
+    case 'position': return `/cs/kariera/${params.id}`;
+    default: return '/cs';
+  }
+}
+
 function generateSitemapXml() {
   const today = new Date().toISOString().split('T')[0];
 
-  const staticPages = [
-    { loc: '/', lastmod: today, changefreq: 'weekly', priority: '1.0' },
-    { loc: '/news', lastmod: today, changefreq: 'weekly', priority: '0.8' },
-    { loc: '/career', lastmod: today, changefreq: 'weekly', priority: '0.8' },
+  const allPages = [
+    { route: 'home', lastmod: today, changefreq: 'weekly', priority: '1.0' },
+    { route: 'news', lastmod: today, changefreq: 'weekly', priority: '0.8' },
+    ...newsArticles.map((a) => ({
+      route: 'article',
+      slug: a.slug,
+      lastmod: articleDates[a.slug] || today,
+      changefreq: 'monthly',
+      priority: '0.7',
+    })),
+    { route: 'career', lastmod: today, changefreq: 'weekly', priority: '0.8' },
+    ...careerPositions.map((p) => ({
+      route: 'position',
+      id: p.id,
+      lastmod: today,
+      changefreq: 'monthly',
+      priority: '0.6',
+    })),
   ];
-
-  const articlePages = newsArticles.map((a) => ({
-    loc: `/news/${a.slug}`,
-    lastmod: articleDates[a.slug] || today,
-    changefreq: 'monthly',
-    priority: '0.7',
-  }));
-
-  const positionPages = careerPositions.map((p) => ({
-    loc: `/career/${p.id}`,
-    lastmod: today,
-    changefreq: 'monthly',
-    priority: '0.6',
-  }));
-
-  const allPages = [...staticPages, ...articlePages, ...positionPages];
 
   const urls = allPages
     .map((page) => {
-      const fullUrl = `${SITE_URL}${page.loc}`;
-      return `  <url>
-    <loc>${fullUrl}</loc>
+      const params = page.slug ? { slug: page.slug } : page.id ? { id: page.id } : {};
+      const enPath = buildEnPath(page.route, params);
+      const csPath = buildCsPath(page.route, params);
+      const enUrl = `${SITE_URL}${enPath}`;
+      const csUrl = `${SITE_URL}${csPath}`;
+
+      const alternates = [
+        `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="cs" href="${csUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>`,
+      ].join('\n');
+
+      return [
+        `  <url>
+    <loc>${enUrl}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="${fullUrl}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="${fullUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${fullUrl}"/>
-  </url>`;
+${alternates}
+  </url>`,
+        `  <url>
+    <loc>${csUrl}</loc>
+    <lastmod>${page.lastmod}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+${alternates}
+  </url>`,
+      ].join('\n');
     })
     .join('\n');
 
