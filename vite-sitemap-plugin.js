@@ -1,7 +1,7 @@
 import { newsArticles } from './src/data/newsArticles.js';
 import { careerPositions } from './src/data/careerPositions.js';
 
-const SITE_URL = 'https://rec-pan.cz';
+const SITE_URL = 'https://rec-pan.eu';
 
 const articleDates = {
   'recpan-at-intersolar-europe': '2026-06-17',

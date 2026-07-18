@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rec-pan.cz/sitemap.xml
+Sitemap: https://rec-pan.eu/sitemap.xml
