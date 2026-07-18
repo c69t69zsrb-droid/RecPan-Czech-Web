@@ -7,6 +7,8 @@ export default function FooterLogo() {
     <img
       src={FOOTER_LOGO_URL}
       alt="RecPan — Solar Panel Recycling"
+      width={720}
+      height={240}
       style={{ height: 240, width: "auto", filter: "brightness(0) invert(1)" }}
       className="object-contain select-none pointer-events-none"
     />

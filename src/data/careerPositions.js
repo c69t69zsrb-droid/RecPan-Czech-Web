@@ -33,6 +33,7 @@ export const careerPositions = [
     salary: { cs: "40 000–44 000 Kč / měsíc", en: "40,000–44,000 CZK / month" },
     positionsAvailable: 2,
     workHours: { cs: "Směnný provoz", en: "Shift work" },
+    startDate: { cs: "Ihned", en: "Immediate" },
     image: facilityImage,
     shortDescription: {
       cs: "Manipulace se solárními panely a recyklovanými materiály, obsluha vysokozdvižného vozíku, vážení materiálu a udržování čistoty pracoviště.",
@@ -82,6 +83,7 @@ export const careerPositions = [
     salary: { cs: "42 000–46 000 Kč / měsíc", en: "42,000–46,000 CZK / month" },
     positionsAvailable: 1,
     workHours: { cs: "Směnný provoz", en: "Shift work" },
+    startDate: { cs: "Ihned", en: "Immediate" },
     image: facilityImage,
     shortDescription: {
       cs: "Obsluha recyklační linky, kontrola parametrů, kalibrace zařízení, řešení provozních závad a každodenní kontrola technologie.",
@@ -131,6 +133,7 @@ export const careerPositions = [
     salary: { cs: "50 000–55 000 Kč / měsíc", en: "50,000–55,000 CZK / month" },
     positionsAvailable: 1,
     workHours: { cs: "Pondělí – pátek", en: "Monday – Friday" },
+    startDate: { cs: "Ihned", en: "Immediate" },
     image: facilityImage,
     shortDescription: {
       cs: "Obsluha chemické části technologie, manipulace s přísadami, sledování procesu a běžná údržba.",
@@ -180,6 +183,7 @@ export const careerPositions = [
     salary: { cs: "55 000–60 000 Kč / měsíc", en: "55,000–60,000 CZK / month" },
     positionsAvailable: 1,
     workHours: { cs: "Pondělí – pátek", en: "Monday – Friday" },
+    startDate: { cs: "Ihned", en: "Immediate" },
     image: facilityImage,
     shortDescription: {
       cs: "Řízení chemické části recyklačního procesu, práce s reagenciemi, kontrola chemických parametrů a údržba zařízení.",

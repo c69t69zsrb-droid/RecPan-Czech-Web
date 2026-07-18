@@ -5,14 +5,6 @@ import { useLanguage } from "@/hooks/useLanguage";
 export default function TrustedBy() {
   const { t } = useLanguage();
 
-  const partners = [
-    "PV CYCLE",
-    "WEEELABEX",
-    "CTU",
-    t("trusted.partner4"),
-    t("trusted.partner5"),
-  ];
-
   return (
     <section className="relative py-6 lg:py-8 border-t border-obsidian/5">
       <div className="px-6 md:px-[4.166%]">
@@ -30,22 +22,7 @@ export default function TrustedBy() {
             {t("trusted.desc")}
           </p>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
-          
-          {partners.map((partner) =>
-          <div
-            key={partner}
-            className="font-heading text-base md:text-lg font-semibold tracking-[-0.01em] text-obsidian/20 hover:text-obsidian/50 transition-colors duration-300 cursor-default hidden">
-            
-              {partner}
-            </div>
-          )}
-        </motion.div>
+        {/* Partner logos pending — no hidden content for SEO */}
       </div>
     </section>);
 }

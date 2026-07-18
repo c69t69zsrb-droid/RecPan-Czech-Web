@@ -66,7 +66,7 @@
 .snap-container {
   scroll-snap-type: y proximity;
   overflow-y: scroll;
-  height: 100vh;
+  height: 100dvh;
 }
 .snap-section {
   scroll-snap-align: start;
@@ -80,4 +80,10 @@
 .horizontal-scroll {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

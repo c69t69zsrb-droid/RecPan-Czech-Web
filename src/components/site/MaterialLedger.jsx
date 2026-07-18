@@ -81,6 +81,9 @@ export default function MaterialLedger() {
                 <img
                 src={mat.image}
                 alt={mat.alt}
+                width={800}
+                height={600}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
               
                 <div className="absolute top-4 left-4 font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/40">

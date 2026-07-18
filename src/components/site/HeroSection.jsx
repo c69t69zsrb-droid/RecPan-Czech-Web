@@ -88,6 +88,9 @@ export default function HeroSection({ onNavigate }) {
             <img
               src={HERO_IMAGE}
               alt={t("hero.altPanel")}
+              width={1920}
+              height={1080}
+              fetchPriority="high"
               className="w-full h-full object-cover" />
             
             <div className="absolute inset-0 bg-gradient-to-r from-titanium via-transparent to-transparent lg:opacity-100 opacity-0" />

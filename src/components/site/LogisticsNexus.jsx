@@ -211,7 +211,7 @@ export default function LogisticsNexus() {
             </div>
 
             {status === "error" && (
-              <div className="flex items-start gap-3 mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div role="alert" className="flex items-start gap-3 mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
                 <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
                 <p className="font-heading text-sm text-red-700 leading-relaxed">
                   {t("form.errorDesc")}

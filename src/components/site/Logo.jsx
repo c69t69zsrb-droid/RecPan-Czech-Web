@@ -9,6 +9,8 @@ export default function Logo({ variant = "dark", showSubtext = true, size = "md"
     <img
       src={LOGO_URL}
       alt="RecPan — Solar Panel Recycling"
+      width={imgHeight * 3}
+      height={imgHeight}
       style={{ height: imgHeight, width: "auto" }}
       className="object-contain"
     />

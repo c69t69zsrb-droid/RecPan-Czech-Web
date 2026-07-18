@@ -24,6 +24,9 @@ export default function CircularityMatrix() {
             <img
               src={FACILITY_IMAGE}
               alt={t("process.alt")}
+              width={1200}
+              height={800}
+              loading="lazy"
               className="w-full h-full object-cover" />
             
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent" />

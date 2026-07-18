@@ -50,14 +50,15 @@ export default function LatestNews() {
           {articles.map((article, i) => {
             const tr = article.translations[language];
             return (
-            <motion.div
+            <motion.a
             key={article.slug}
+            href={`/news/${article.slug}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            onClick={() => navigate(`/news/${article.slug}`)}
-            className="group cursor-pointer border-t border-obsidian/10 hover:-translate-y-1 transition-all duration-300">
+            onClick={(e) => { e.preventDefault(); navigate(`/news/${article.slug}`); }}
+            className="group cursor-pointer border-t border-obsidian/10 hover:-translate-y-1 transition-all duration-300 block">
             
               <div className="flex items-center gap-3 mb-4">
                 <span className="font-heading text-[10px] uppercase tracking-[0.2em] text-brand-green font-medium">
@@ -73,6 +74,9 @@ export default function LatestNews() {
                   <img
                     src={article.image}
                     alt={tr.title}
+                    width={400}
+                    height={225}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     style={article.imagePosition ? { objectPosition: article.imagePosition } : undefined}
                   />
@@ -93,7 +97,7 @@ export default function LatestNews() {
                 {t("news.readMore")}
                 <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
               </span>
-            </motion.div>
+            </motion.a>
             );
           })}
         </div>

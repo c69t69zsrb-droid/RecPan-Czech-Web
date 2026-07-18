@@ -188,6 +188,9 @@ export default function ApplicationForm({ selectedPosition }) {
           <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
             {t("career.formCv")}
           </label>
+          <p className="font-heading text-xs text-obsidian/30 mb-4 font-light">
+            {t("career.formCvOptional")}
+          </p>
           {!cvFileName ? (
             <button
               type="button"
@@ -217,13 +220,14 @@ export default function ApplicationForm({ selectedPosition }) {
             type="file"
             accept=".pdf,.doc,.docx"
             onChange={handleFileChange}
+            aria-label={t("career.formCv")}
             className="hidden"
           />
         </div>
       </div>
 
       {status === "error" && (
-        <div className="flex items-start gap-3 mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div role="alert" className="flex items-start gap-3 mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
           <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
           <p className="font-heading text-sm text-red-700 leading-relaxed">
             {t("career.formErrorDesc")}

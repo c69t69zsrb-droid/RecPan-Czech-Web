@@ -98,7 +98,7 @@ IČO: 23695781</p>
           <div className="space-y-3">
             <p className="font-heading text-[9px] uppercase tracking-[0.25em] text-titanium/30 mb-2">{t("footer.legalLabel")}</p>
             {legalLinks.map((label) =>
-            <a key={label} href="#hero" onClick={(e) => {e.preventDefault();handleNav("#hero");}} className="block font-heading text-xs text-titanium/40 hover:text-brand-green transition-colors">
+            <a key={label} href="#hero" rel="nofollow" onClick={(e) => {e.preventDefault();handleNav("#hero");}} className="block font-heading text-xs text-titanium/40 hover:text-brand-green transition-colors">
                 {label}
               </a>
             )}

@@ -16,12 +16,17 @@ export default function Navigation({ onNavigate }) {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
+      const handleEscape = (e) => {
+        if (e.key === "Escape") setOpen(false);
+      };
+      document.addEventListener("keydown", handleEscape);
+      return () => {
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", handleEscape);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [open]);
 
   const navLinks = [
@@ -74,6 +79,8 @@ export default function Navigation({ onNavigate }) {
           <LanguageSwitcher />
           <button
             onClick={() => setOpen(true)}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             className="flex items-center gap-2 text-xs font-heading font-medium uppercase tracking-[0.15em] text-obsidian hover:text-brand-green transition-colors">
             
             {t("nav.menu")} <Menu size={16} />
@@ -100,12 +107,17 @@ export default function Navigation({ onNavigate }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t("nav.menu")}
+            id="mobile-navigation"
             className="fixed right-0 top-0 bottom-0 w-[85%] md:w-[30%] bg-titanium z-[3000] flex flex-col justify-between p-8 md:p-12 border-l border-obsidian/10 overflow-y-auto">
             
               <div className="flex items-center justify-between">
                 <Logo size="sm" />
                 <button
                 onClick={() => setOpen(false)}
+                aria-label={t("nav.close")}
                 className="text-obsidian/40 hover:text-obsidian transition-colors">
                 
                   <X size={20} />
