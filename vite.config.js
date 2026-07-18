@@ -2,6 +2,7 @@ import base44 from "@base44/vite-plugin"
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import generateSitemapPlugin from './vite-sitemap-plugin.js'
+import generatePrerenderPlugin from './vite-prerender-plugin.js'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -17,5 +18,6 @@ export default defineConfig({
     }),
     react(),
     generateSitemapPlugin(),
+    generatePrerenderPlugin(),
   ]
 });
