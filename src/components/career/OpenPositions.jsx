@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { MapPin, Clock, Banknote, CalendarDays, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 import { careerPositions } from "@/data/careerPositions";
 
 export default function OpenPositions() {
@@ -30,12 +31,12 @@ export default function OpenPositions() {
         {careerPositions.map((pos, i) => (
           <motion.a
             key={pos.id}
-            href={`/career/${pos.id}`}
+            href={buildPath("position", language, { id: pos.id })}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            onClick={(e) => { e.preventDefault(); navigate(`/career/${pos.id}`); }}
+            onClick={(e) => { e.preventDefault(); navigate(buildPath("position", language, { id: pos.id })); }}
             className="group border border-obsidian/10 rounded-xl p-8 md:p-10 hover:border-brand-green/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer bg-white/30"
           >
             <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.01em] text-obsidian mb-4 group-hover:text-brand-green transition-colors duration-300">

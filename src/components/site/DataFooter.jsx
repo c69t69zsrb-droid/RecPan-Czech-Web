@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import FooterLogo from "@/components/site/FooterLogo";
 import { useTonnesCounter } from "@/hooks/useTonnesCounter";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath, parsePath } from "@/lib/i18n/routes";
 
 export default function DataFooter({ onNavigate }) {
   const { t, language } = useLanguage();
@@ -13,10 +14,11 @@ export default function DataFooter({ onNavigate }) {
   const locale = language === "cs" ? "cs-CZ" : "en-US";
 
   const handleNav = (href) => {
-    if (location.pathname === "/" && onNavigate) {
+    const { route } = parsePath(location.pathname);
+    if (route === "home" && onNavigate) {
       onNavigate(href);
     } else {
-      navigate(`/${href}`);
+      navigate(`${buildPath("home", language)}${href}`);
     }
   };
 

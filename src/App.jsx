@@ -45,6 +45,11 @@ const AuthenticatedApp = () => {
       <Route path="/news/:slug" element={<Article />} />
       <Route path="/career" element={<Career />} />
       <Route path="/career/:positionId" element={<PositionDetail />} />
+      <Route path="/cs" element={<Home />} />
+      <Route path="/cs/aktuality" element={<News />} />
+      <Route path="/cs/aktuality/:slug" element={<Article />} />
+      <Route path="/cs/kariera" element={<Career />} />
+      <Route path="/cs/kariera/:positionId" element={<PositionDetail />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -55,15 +60,15 @@ function App() {
 
   return (
     <AuthProvider>
-      <LanguageProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
-          <ScrollToTop />
-          <AuthenticatedApp />
+          <LanguageProvider>
+            <ScrollToTop />
+            <AuthenticatedApp />
+          </LanguageProvider>
         </Router>
         <Toaster />
       </QueryClientProvider>
-      </LanguageProvider>
     </AuthProvider>
   )
 }

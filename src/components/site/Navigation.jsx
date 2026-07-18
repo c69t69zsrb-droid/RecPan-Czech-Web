@@ -5,9 +5,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "@/components/site/Logo";
 import LanguageSwitcher from "@/components/site/LanguageSwitcher";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath, parsePath } from "@/lib/i18n/routes";
 
 export default function Navigation({ onNavigate }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [open, setOpen] = useState(false);
   const [hoveredTint, setHoveredTint] = useState(null);
   const location = useLocation();
@@ -36,17 +37,18 @@ export default function Navigation({ onNavigate }) {
     { label: t("nav.expansion"), href: "#expansion", tint: "bg-brand-green/[0.05]" },
     { label: t("nav.materials"), href: "#materials", tint: "bg-brand-green/[0.05]" },
     { label: t("nav.process"), href: "#process", tint: "bg-brand-green/[0.05]" },
-    { label: t("nav.career"), href: "/career", tint: "bg-brand-green/[0.03]", isRoute: true },
-    { label: t("nav.news"), href: "/news", tint: "bg-brand-green/[0.03]", isRoute: true },
+    { label: t("nav.career"), href: buildPath("career", language), tint: "bg-brand-green/[0.03]", isRoute: true },
+    { label: t("nav.news"), href: buildPath("news", language), tint: "bg-brand-green/[0.03]", isRoute: true },
     { label: t("nav.contact"), href: "#contact", tint: "bg-brand-dark/[0.03]" },
   ];
 
   const handleSectionClick = (href) => {
     setOpen(false);
-    if (location.pathname === "/" && onNavigate) {
+    const { route } = parsePath(location.pathname);
+    if (route === "home" && onNavigate) {
       onNavigate(href);
     } else {
-      navigate(`/${href}`);
+      navigate(`${buildPath("home", language)}${href}`);
     }
   };
 
@@ -57,10 +59,11 @@ export default function Navigation({ onNavigate }) {
 
   const handleLogoClick = () => {
     setOpen(false);
-    if (location.pathname === "/" && onNavigate) {
+    const { route } = parsePath(location.pathname);
+    if (route === "home" && onNavigate) {
       onNavigate("#hero");
     } else {
-      navigate("/");
+      navigate(buildPath("home", language));
     }
   };
 

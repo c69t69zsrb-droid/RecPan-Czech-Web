@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { newsArticles } from "@/data/newsArticles";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 
 const getPreview = (tr) => {
   const source = tr.excerpt || (tr.content && tr.content[0]) || "";
@@ -38,7 +39,7 @@ export default function LatestNews() {
             <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-20">{t("news.latestTitle")}</h2>
           </div>
           <button
-            onClick={() => navigate("/news")}
+            onClick={() => navigate(buildPath("news", language))}
             className="font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/50 hover:text-brand-green transition-colors flex items-center gap-2 group">
             
             {t("news.viewAll")}
@@ -52,12 +53,12 @@ export default function LatestNews() {
             return (
             <motion.a
             key={article.slug}
-            href={`/news/${article.slug}`}
+            href={buildPath("article", language, { slug: article.slug })}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            onClick={(e) => { e.preventDefault(); navigate(`/news/${article.slug}`); }}
+            onClick={(e) => { e.preventDefault(); navigate(buildPath("article", language, { slug: article.slug })); }}
             className="group cursor-pointer border-t border-obsidian/10 hover:-translate-y-1 transition-all duration-300 block">
             
               <div className="flex items-center gap-3 mb-4">

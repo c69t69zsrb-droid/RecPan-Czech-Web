@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { getAlternatePaths } from "@/lib/i18n/routes";
 
 const SITE_URL = "https://rec-pan.eu";
 const LOGO_URL = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/161cbfc87_ChatGPTImageJul7202607_43_34PM.png";
@@ -118,10 +119,13 @@ export function articleData({ title, description, image, path, datePublished, da
   };
 }
 
-export default function SEO({ title, description, path = "", image, type = "website", locale = "cs_CZ", structuredData, noindex = false }) {
+export default function SEO({ title, description, path = "", image, type = "website", locale = "cs_CZ", language = "en", structuredData, noindex = false }) {
   const canonicalUrl = `${SITE_URL}${path}`;
   const ogImage = image || DEFAULT_OG_IMAGE;
   const structuredDataStr = structuredData ? JSON.stringify(structuredData) : null;
+  const alternates = getAlternatePaths(path);
+  const enUrl = `${SITE_URL}${alternates.en}`;
+  const csUrl = `${SITE_URL}${alternates.cs}`;
 
   useEffect(() => {
     document.title = title;
@@ -131,9 +135,9 @@ export default function SEO({ title, description, path = "", image, type = "webs
 
     upsertLink("canonical", canonicalUrl);
 
-    upsertLink("alternate", canonicalUrl, "cs");
-    upsertLink("alternate", canonicalUrl, "en");
-    upsertLink("alternate", canonicalUrl, "x-default");
+    upsertLink("alternate", enUrl, "en");
+    upsertLink("alternate", csUrl, "cs");
+    upsertLink("alternate", enUrl, "x-default");
 
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
@@ -159,7 +163,7 @@ export default function SEO({ title, description, path = "", image, type = "webs
       scriptTag.textContent = structuredDataStr;
       document.head.appendChild(scriptTag);
     }
-  }, [title, description, canonicalUrl, ogImage, type, locale, structuredDataStr, noindex]);
+  }, [title, description, canonicalUrl, enUrl, csUrl, ogImage, type, locale, language, structuredDataStr, noindex]);
 
   return null;
 }
