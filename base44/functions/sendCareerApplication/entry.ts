@@ -6,16 +6,18 @@ Deno.serve(async (req) => {
       return Response.json({ error: "Invalid request body" }, { status: 400 });
     }
 
-    const name = (data.name || "").trim();
+    const firstName = (data.firstName || "").trim();
+    const lastName = (data.lastName || "").trim();
     const email = (data.email || "").trim();
     const phone = (data.phone || "").trim();
     const position = (data.position || "").trim();
-    const message = (data.message || "").trim();
+    const intro = (data.intro || "").trim();
     const cvUrl = (data.cvUrl || "").trim();
+    const name = `${firstName} ${lastName}`.trim();
 
-    if (!name || !email) {
-      console.error("sendCareerApplication: missing required fields", { name, email });
-      return Response.json({ error: "Missing required fields (name, email)" }, { status: 400 });
+    if (!firstName || !lastName || !email) {
+      console.error("sendCareerApplication: missing required fields", { firstName, lastName, email });
+      return Response.json({ error: "Missing required fields (firstName, lastName, email)" }, { status: 400 });
     }
 
     const apiKey = Deno.env.get("RESEND_API_KEY");
@@ -37,7 +39,7 @@ Deno.serve(async (req) => {
       `Email: ${email}`,
       `Phone: ${phone || "—"}`,
       `Position: ${position || "—"}`,
-      `Message: ${message || "—"}`,
+      `Intro: ${intro || "—"}`,
       `CV: ${cvUrl || "Not uploaded"}`,
       "",
       `Submitted: ${submittedAt}`,
