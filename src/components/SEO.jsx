@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const SITE_URL = "https://rec-pan.cz";
+const SITE_URL = "https://rec-pan.eu";
 const LOGO_URL = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/161cbfc87_ChatGPTImageJul7202607_43_34PM.png";
 const DEFAULT_OG_IMAGE = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/abdf0ee40_IMG_06852Large.jpg";
 
