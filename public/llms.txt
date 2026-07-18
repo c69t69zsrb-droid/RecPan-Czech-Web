@@ -1,0 +1,35 @@
+# RecPan
+
+> RecPan is a Czech technology and recycling company focused on recycling photovoltaic panels and recovering strategic raw materials. We operate one of the most advanced photovoltaic recycling facilities in Europe, located in Příbram, Czech Republic.
+
+## About
+RecPan s.r.o. transforms end-of-life photovoltaic panels into valuable raw materials using proprietary recycling technology. We recover more than 97% of materials from every solar panel in high purity, including glass, aluminum, copper, silver, and silicon. Our goal is to close the material loop by returning recovered materials to industry and developing our own high-value products from recycled materials.
+
+## Key Facts
+- Annual processing capacity: 7,000 tonnes of end-of-life solar panels
+- Material recovery rate: >97%
+- Headquarters: Příbram, Czech Republic
+- International expansion: Spain, Italy, Australia
+- Company: RecPan s.r.o., IČO: 23695781
+
+## Pages
+- [Home](https://rec-pan.cz/)
+- [News](https://rec-pan.cz/news)
+- [Career](https://rec-pan.cz/career)
+
+## Articles
+- [RecPan at Intersolar Europe](https://rec-pan.cz/news/recpan-at-intersolar-europe)
+- [RecPan Begins International Expansion](https://rec-pan.cz/news/recpan-begins-international-expansion)
+- [New Recycling Facility Under Development](https://rec-pan.cz/news/new-recycling-facility-under-development)
+
+## Recovered Materials
+- Glass (96% recovery, 99.2% purity) — glass manufacturing
+- Silicon (94% recovery, 98.5–99.5% purity) — electronics / battery industry
+- Aluminum (100% recovery, 98.5–99% purity) — metal recycling
+- Copper & Silver (99% recovery, 99%+ purity) — electrical industry
+
+## Contact
+- Email: office@rec-pan.cz
+- Phone: +420 603 598 400
+- Address: Petrská 1033/66, 110 00 Prague, Czech Republic
+- Website: https://rec-pan.cz
