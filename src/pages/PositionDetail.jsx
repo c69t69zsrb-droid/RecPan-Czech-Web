@@ -15,6 +15,7 @@ import DataFooter from "@/components/site/DataFooter";
 import ApplicationForm from "@/components/career/ApplicationForm";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getPositionById } from "@/data/careerPositions";
+import SEO, { breadcrumbData } from "@/components/SEO";
 
 export default function PositionDetail() {
   const { positionId } = useParams();
@@ -38,6 +39,7 @@ export default function PositionDetail() {
   if (!position) {
     return (
       <div className="bg-titanium min-h-screen">
+        <SEO title={t("career.notFound")} path="/career" noindex />
         <Navigation />
         <div className="pt-40 pb-32 px-6 md:px-[4.166%] text-center">
           <h1 className="font-heading text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-obsidian mb-4">
@@ -68,6 +70,18 @@ export default function PositionDetail() {
 
   return (
     <div className="bg-titanium min-h-screen">
+      <SEO
+        title={`${position.title[language]} | RecPan`}
+        description={position.shortDescription[language]}
+        path={`/career/${positionId}`}
+        image={position.image}
+        locale={language === "cs" ? "cs_CZ" : "en_US"}
+        structuredData={breadcrumbData([
+          { name: language === "cs" ? "Domů" : "Home", path: "/" },
+          { name: t("career.label"), path: "/career" },
+          { name: position.title[language], path: `/career/${positionId}` },
+        ])}
+      />
       <Navigation />
 
       {/* Back link */}
@@ -122,6 +136,9 @@ export default function PositionDetail() {
           <img
             src={position.image}
             alt={position.title[language]}
+            width={1200}
+            height={600}
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </motion.div>

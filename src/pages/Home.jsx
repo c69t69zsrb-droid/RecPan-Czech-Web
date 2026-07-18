@@ -14,9 +14,12 @@ import LatestNews from "@/components/site/LatestNews";
 import LogisticsNexus from "@/components/site/LogisticsNexus";
 import DataFooter from "@/components/site/DataFooter";
 import FacilitySection from "@/components/site/FacilitySection";
+import SEO, { ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA } from "@/components/SEO";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function Home() {
   const containerRef = useRef(null);
+  const { t, language } = useLanguage();
 
   const scrollTo = useCallback((href) => {
     const id = href.replace("#", "");
@@ -34,6 +37,13 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="snap-container relative bg-titanium">
+      <SEO
+        title={t("seo.home.title")}
+        description={t("seo.home.desc")}
+        path="/"
+        locale={language === "cs" ? "cs_CZ" : "en_US"}
+        structuredData={[ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA]}
+      />
       <MeridianLines />
       <ScrollProgress containerRef={containerRef} />
       <Navigation onNavigate={scrollTo} />

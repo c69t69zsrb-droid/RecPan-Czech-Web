@@ -6,6 +6,13 @@ import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import { newsArticles } from "@/data/newsArticles";
 import { useLanguage } from "@/hooks/useLanguage";
+import SEO, { articleData, breadcrumbData } from "@/components/SEO";
+
+const articleDates = {
+  "recpan-at-intersolar-europe": "2026-06-17",
+  "recpan-begins-international-expansion": "2026-06-11",
+  "new-recycling-facility-under-development": "2025-11-20",
+};
 
 const renderFormattedText = (text) => {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -26,6 +33,7 @@ export default function Article() {
   if (!article) {
     return (
       <div className="bg-titanium min-h-screen flex items-center justify-center">
+        <SEO title={t("article.notFound")} path="/news" noindex />
         <div className="text-center">
           <h1 className="font-heading text-3xl font-semibold text-obsidian mb-4">{t("article.notFound")}</h1>
           <Link
@@ -43,6 +51,30 @@ export default function Article() {
 
   return (
     <div className="bg-titanium min-h-screen">
+      <SEO
+        title={`${tr.title} | RecPan`}
+        description={tr.excerpt}
+        path={`/news/${slug}`}
+        image={article.image}
+        type="article"
+        locale={language === "cs" ? "cs_CZ" : "en_US"}
+        structuredData={[
+          articleData({
+            title: tr.title,
+            description: tr.excerpt,
+            image: article.image,
+            path: `/news/${slug}`,
+            datePublished: articleDates[slug],
+            dateModified: articleDates[slug],
+            articleSection: tr.category,
+          }),
+          breadcrumbData([
+            { name: language === "cs" ? "Domů" : "Home", path: "/" },
+            { name: language === "cs" ? "Aktuality" : "News", path: "/news" },
+            { name: tr.title, path: `/news/${slug}` },
+          ]),
+        ]}
+      />
       <Navigation />
 
       {/* Back button */}
@@ -59,12 +91,12 @@ export default function Article() {
       {/* Hero Image */}
       <div className="px-6 md:px-[4.166%] mt-8 mb-12">
         <div className="relative h-[44vh] md:h-[60vh] overflow-hidden rounded-lg">
-          <img src={article.image} alt={tr.title} className="w-full h-full object-cover" />
+          <img src={article.image} alt={tr.title} width={1200} height={675} loading="lazy" className="w-full h-full object-cover" />
         </div>
       </div>
 
       {/* Article Content */}
-      <article className="px-6 md:px-[4.166%] pb-24">
+      <main className="px-6 md:px-[4.166%] pb-24">
         <div className="max-w-[52rem] mx-auto">
           {/* Meta */}
           <div className="mb-8">
@@ -113,7 +145,7 @@ export default function Article() {
                 {article.contentImage && i === 3 &&
               <figure className="my-8 md:my-10">
                     <div className="relative h-[40vh] md:h-[55vh] overflow-hidden rounded-lg">
-                      <img src={article.contentImage} alt={tr.title} className="w-full h-full object-cover" />
+                      <img src={article.contentImage} alt={tr.title} width={1200} height={675} loading="lazy" className="w-full h-full object-cover" />
                     </div>
                   </figure>
               }
@@ -131,7 +163,7 @@ export default function Article() {
           </div>
           }
         </div>
-      </article>
+      </main>
 
       {/* Related Articles */}
       <section className="px-6 md:px-[4.166%] py-16 border-t border-obsidian/10">
@@ -149,10 +181,13 @@ export default function Article() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               onClick={() => navigate(`/news/${rel.slug}`)}
+              role="link"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate(`/news/${rel.slug}`); }}
               className="group cursor-pointer">
             
               <div className="relative h-48 overflow-hidden rounded-lg mb-4 bg-obsidian/5">
-                <img src={rel.image} alt={relTr.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+                <img src={rel.image} alt={relTr.title} width={400} height={225} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
               </div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="font-heading text-[10px] uppercase tracking-[0.2em] text-brand-green font-medium">

@@ -6,6 +6,7 @@ import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import { newsArticles, newsCategories } from "@/data/newsArticles";
 import { useLanguage } from "@/hooks/useLanguage";
+import SEO from "@/components/SEO";
 
 export default function News() {
   const navigate = useNavigate();
@@ -19,6 +20,12 @@ export default function News() {
 
   return (
     <div className="bg-titanium min-h-screen">
+      <SEO
+        title={t("seo.news.title")}
+        description={t("news.pageDesc")}
+        path="/news"
+        locale={language === "cs" ? "cs_CZ" : "en_US"}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -71,12 +78,18 @@ export default function News() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
               onClick={() => navigate(`/news/${article.slug}`)}
+              role="link"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate(`/news/${article.slug}`); }}
               className="group cursor-pointer"
             >
               <div className="relative h-56 lg:h-64 overflow-hidden rounded-lg mb-5 bg-obsidian/5">
                 <img
                   src={article.image}
                   alt={tr.title}
+                  width={400}
+                  height={300}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                 />
               </div>
@@ -88,9 +101,9 @@ export default function News() {
                   {tr.date}
                 </span>
               </div>
-              <h3 className="font-heading text-lg md:text-xl font-semibold tracking-[-0.01em] text-obsidian mb-2 group-hover:text-brand-green transition-colors duration-300">
+              <h2 className="font-heading text-lg md:text-xl font-semibold tracking-[-0.01em] text-obsidian mb-2 group-hover:text-brand-green transition-colors duration-300">
                 {tr.title}
-              </h3>
+              </h2>
               <p className="font-heading text-sm text-obsidian/50 font-light leading-relaxed mb-4">
                 {tr.excerpt}
               </p>
