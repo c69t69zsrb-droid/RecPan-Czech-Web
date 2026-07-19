@@ -47,7 +47,7 @@ export default function DataFooter({ onNavigate }) {
 
 
   return (
-    <footer className="relative bg-obsidian text-titanium px-6 md:px-[4.166%] py-6 md:py-9">
+    <footer className="relative bg-obsidian text-titanium pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-6 md:py-9">
       {/* Impact metrics */}
       <div className="mb-16 md:mb-24">
         <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-titanium/70 mb-8">

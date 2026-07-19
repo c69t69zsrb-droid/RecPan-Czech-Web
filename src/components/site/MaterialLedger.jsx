@@ -49,7 +49,7 @@ export default function MaterialLedger() {
   return (
     <section id="materials" className="snap-section relative min-h-0 flex flex-col justify-center py-6 lg:py-0 mt-20 lg:mt-28">
       {/* Header */}
-      <div className="px-6 md:px-[4.166%] mb-10">
+      <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function MaterialLedger() {
       {/* Horizontal scroll cards */}
       <div
         ref={scrollRef}
-        className="horizontal-scroll flex gap-6 overflow-x-auto md:px-[4.166%]">
+        className="horizontal-scroll flex gap-6 overflow-x-auto pl-10 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         
         {materials.map((mat, i) =>
         <motion.div

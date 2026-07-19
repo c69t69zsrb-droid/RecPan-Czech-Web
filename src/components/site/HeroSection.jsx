@@ -16,7 +16,7 @@ export default function HeroSection({ onNavigate }) {
       {/* Top: text + image */}
       <div className="flex flex-col lg:flex-row flex-1">
         {/* Left content */}
-        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[42%] px-6 md:px-[4.166%] py-24 lg:py-16">
+        <div className="relative z-10 flex flex-col justify-center w-full lg:w-[42%] pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-24 lg:py-16">
 
           <motion.h1
             initial={{ opacity: 0, y: 40 }}

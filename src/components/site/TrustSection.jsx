@@ -16,7 +16,7 @@ export default function TrustSection() {
 
   return (
     <section id="trust" className="snap-section relative min-h-0 flex flex-col justify-center lg:py-9 border-t border-obsidian/10 py-4">
-      <div className="px-6 md:px-[4.166%]">
+      <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

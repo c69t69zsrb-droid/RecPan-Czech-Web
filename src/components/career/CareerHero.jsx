@@ -7,7 +7,7 @@ export default function CareerHero({ onScrollToPositions, onScrollToAbout }) {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 px-6 md:px-[4.166%] overflow-hidden">
+    <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

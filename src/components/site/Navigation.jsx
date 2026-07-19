@@ -70,7 +70,7 @@ export default function Navigation({ onNavigate }) {
   return (
     <>
       {/* Top bar */}
-      <header className="fixed top-0 left-0 right-0 z-[2000] flex items-center justify-between md:px-[4.166%] px-5 pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-[2000] flex items-center justify-between md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pl-10 pr-5 pointer-events-none">
         <a
           href="#hero"
           onClick={(e) => {e.preventDefault();handleLogoClick();}}

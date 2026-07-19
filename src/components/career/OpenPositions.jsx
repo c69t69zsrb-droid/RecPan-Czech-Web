@@ -20,7 +20,7 @@ export default function OpenPositions() {
   };
 
   return (
-    <section id="positions" className="px-6 md:px-[4.166%] py-16 md:py-24 border-t border-obsidian/10">
+    <section id="positions" className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-16 md:py-24 border-t border-obsidian/10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -52,7 +52,7 @@ export default function LogisticsNexus() {
 
   if (status === "success") {
     return (
-      <section id="contact" className="snap-section relative min-h-0 flex items-center justify-center px-6 md:px-[4.166%]">
+      <section id="contact" className="snap-section relative min-h-0 flex items-center justify-center pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function LogisticsNexus() {
   ];
 
   return (
-    <section id="contact" className="snap-section relative min-h-0 flex flex-col justify-center px-6 md:px-[4.166%] py-6">
+    <section id="contact" className="snap-section relative min-h-0 flex flex-col justify-center pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-6">
       <div className="max-w-3xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
