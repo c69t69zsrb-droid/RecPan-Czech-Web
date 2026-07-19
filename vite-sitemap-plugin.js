@@ -4,12 +4,14 @@ import { careerPositions } from './src/data/careerPositions.js';
 const SITE_URL = 'https://rec-pan.eu';
 
 const articleSlugCs = {
+  'recpan-expanding-team-pribram': 'recpan-rozsiruje-tym-pribram',
   'recpan-at-intersolar-europe': 'recpan-na-intersolar-europe',
   'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
   'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
 };
 
 const articleDates = {
+  'recpan-expanding-team-pribram': '2026-07-18',
   'recpan-at-intersolar-europe': '2026-06-17',
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',

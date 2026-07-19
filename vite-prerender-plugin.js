@@ -9,12 +9,14 @@ const LOGO_URL = 'https://media.base44.com/images/public/6a42ca6def2b3dfe835b372
 const DEFAULT_OG_IMAGE = 'https://media.base44.com/images/public/6a42ca6def2b3dfe835b3720/abdf0ee40_IMG_06852Large.jpg';
 
 const articleSlugCs = {
+  'recpan-expanding-team-pribram': 'recpan-rozsiruje-tym-pribram',
   'recpan-at-intersolar-europe': 'recpan-na-intersolar-europe',
   'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
   'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
 };
 
 const articleDates = {
+  'recpan-expanding-team-pribram': '2026-07-18',
   'recpan-at-intersolar-europe': '2026-06-17',
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',
@@ -55,17 +57,18 @@ const ORGANIZATION_DATA = {
   sameAs: [],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Petrská 1033/66',
-    addressLocality: 'Prague',
+    streetAddress: 'Petrská 1166/33',
+    addressLocality: 'Prague 1',
     postalCode: '110 00',
     addressCountry: 'CZ',
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+420603598400',
+    telephone: '+420730445454',
     email: 'office@rec-pan.cz',
     contactType: 'customer service',
   },
+  vatID: 'CZ23695781',
 };
 
 const WEBSITE_DATA = {
@@ -83,18 +86,19 @@ const LOCAL_BUSINESS_DATA = {
   image: DEFAULT_OG_IMAGE,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Petrská 1033/66',
-    addressLocality: 'Prague',
+    streetAddress: 'Petrská 1166/33',
+    addressLocality: 'Prague 1',
     postalCode: '110 00',
     addressCountry: 'CZ',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 49.6111,
-    longitude: 14.0056,
+    latitude: 50.0875,
+    longitude: 14.4213,
   },
-  telephone: '+420603598400',
+  telephone: '+420730445454',
   email: 'office@rec-pan.cz',
+  vatID: 'CZ23695781',
   areaServed: 'Europe',
 };
 
