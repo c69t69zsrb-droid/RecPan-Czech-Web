@@ -91,7 +91,7 @@ export default function Article() {
       <Navigation />
 
       {/* Back button */}
-      <div className="pt-[162px] px-6 md:px-[4.166%]">
+      <div className="pt-[162px] pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         <Link
           to={buildPath("news", language)}
           className="font-heading text-xs uppercase tracking-[0.15em] text-obsidian/40 hover:text-brand-green transition-colors flex items-center gap-2">
@@ -102,14 +102,14 @@ export default function Article() {
       </div>
 
       {/* Hero Image */}
-      <div className="px-6 md:px-[4.166%] mt-8 mb-12">
+      <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] mt-8 mb-12">
         <div className="relative h-[44vh] md:h-[60vh] overflow-hidden rounded-lg">
           <img src={article.image} alt={tr.title} width={1200} height={675} loading="lazy" className="w-full h-full object-cover" />
         </div>
       </div>
 
       {/* Article Content */}
-      <main className="px-6 md:px-[4.166%] pb-24">
+      <main className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pb-24">
         <div className="max-w-[52rem] mx-auto">
           {/* Meta */}
           <div className="mb-8">
@@ -193,7 +193,7 @@ export default function Article() {
       </main>
 
       {/* Related Articles */}
-      <section className="px-6 md:px-[4.166%] py-16 border-t border-obsidian/10">
+      <section className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-16 border-t border-obsidian/10">
         <h2 className="font-heading text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-obsidian mb-10">
           {t("article.related")}
         </h2>

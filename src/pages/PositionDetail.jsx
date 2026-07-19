@@ -42,7 +42,7 @@ export default function PositionDetail() {
       <div className="bg-titanium min-h-screen">
         <SEO title={t("career.notFound")} path={buildPath("career", language)} language={language} noindex />
         <Navigation />
-        <div className="pt-40 pb-32 px-6 md:px-[4.166%] text-center">
+        <div className="pt-40 pb-32 pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] text-center">
           <h1 className="font-heading text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-obsidian mb-4">
             {t("career.notFound")}
           </h1>
@@ -87,7 +87,7 @@ export default function PositionDetail() {
       <Navigation />
 
       {/* Back link */}
-      <div className="pt-[162px] px-6 md:px-[4.166%]">
+      <div className="pt-[162px] pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         <Link
           to={buildPath("career", language)}
           className="group flex items-center gap-2 font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/40 hover:text-brand-green transition-colors"
@@ -98,7 +98,7 @@ export default function PositionDetail() {
       </div>
 
       {/* Header */}
-      <section className="px-6 md:px-[4.166%] pt-8 pb-12">
+      <section className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pt-8 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ export default function PositionDetail() {
       </section>
 
       {/* Image */}
-      <section className="px-6 md:px-[4.166%] pb-16">
+      <section className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pb-16">
         <motion.div
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -147,7 +147,7 @@ export default function PositionDetail() {
       </section>
 
       {/* Main content + sidebar */}
-      <section className="px-6 md:px-[4.166%] pb-20">
+      <section className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pb-20">
         <div className="grid lg:grid-cols-[1fr_320px] gap-12 lg:gap-16">
           {/* Left: content */}
           <div className="space-y-12">
@@ -280,7 +280,7 @@ export default function PositionDetail() {
       </section>
 
       {/* Application form */}
-      <section ref={applyRef} className="px-6 md:px-[4.166%] py-16 md:py-20 border-t border-obsidian/10">
+      <section ref={applyRef} className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-16 md:py-20 border-t border-obsidian/10">
         <div className="max-w-3xl mx-auto w-full">
           <ApplicationForm selectedPosition={selectedPosition} />
         </div>

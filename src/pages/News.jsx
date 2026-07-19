@@ -31,7 +31,7 @@ export default function News() {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-12 px-6 md:px-[4.166%]">
+      <section className="pt-32 pb-12 pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function News() {
       </section>
 
       {/* Category Filters */}
-      <div className="px-6 md:px-[4.166%] py-8 border-t border-obsidian/10">
+      <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-8 border-t border-obsidian/10">
         <div className="flex flex-wrap gap-3">
           {newsCategories.map((cat) => (
             <button
@@ -69,7 +69,7 @@ export default function News() {
       </div>
 
       {/* Article Grid */}
-      <section className="px-6 md:px-[4.166%] pb-24">
+      <section className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {filteredArticles.map((article, i) => {
             const tr = article.translations[language];
