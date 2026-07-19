@@ -10,16 +10,26 @@ import { buildPath, translateArticleSlug } from "@/lib/i18n/routes";
 import SEO, { articleData, breadcrumbData } from "@/components/SEO";
 
 const articleDates = {
+  "recpan-expanding-team-pribram": "2026-07-18",
   "recpan-at-intersolar-europe": "2026-06-17",
   "recpan-begins-international-expansion": "2026-06-11",
   "new-recycling-facility-under-development": "2025-11-20",
 };
 
-const renderFormattedText = (text) => {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+const renderFormattedText = (text, language) => {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return <strong key={i} className="font-semibold text-obsidian">{part.slice(2, -2)}</strong>;
+    }
+    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const [, label, route] = linkMatch;
+      return (
+        <Link key={i} to={buildPath(route, language)} className="text-brand-green font-medium hover:text-obsidian transition-colors underline underline-offset-2">
+          {label}
+        </Link>
+      );
     }
     return <React.Fragment key={i}>{part}</React.Fragment>;
   });
@@ -140,10 +150,23 @@ export default function Article() {
 
           {/* Body */}
           <div className="space-y-7">
-            {tr.content.map((paragraph, i) =>
+            {tr.content.map((paragraph, i) => {
+              if (paragraph && typeof paragraph === "object" && paragraph.cta) {
+                return (
+                  <div key={i} className="my-8">
+                    <Link
+                      to={paragraph.cta.hash ? `${buildPath(paragraph.cta.route, language)}#${paragraph.cta.hash}` : buildPath(paragraph.cta.route, language)}
+                      className="inline-flex items-center gap-2 bg-brand-green text-white px-8 py-4 font-heading text-xs font-medium uppercase tracking-[0.15em] hover:bg-obsidian transition-colors rounded-lg">
+                      {paragraph.cta.text}
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                );
+              }
+              return (
             <React.Fragment key={i}>
                 <p className="font-heading text-base md:text-lg text-obsidian/70 leading-relaxed font-light">
-                  {renderFormattedText(paragraph)}
+                  {renderFormattedText(paragraph, language)}
                 </p>
                 {article.contentImage && i === 3 &&
               <figure className="my-8 md:my-10">
@@ -153,7 +176,8 @@ export default function Article() {
                   </figure>
               }
               </React.Fragment>
-            )}
+              );
+            })}
           </div>
 
           {/* Signature */}

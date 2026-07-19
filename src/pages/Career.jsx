@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import Navigation from "@/components/site/Navigation";
 import DataFooter from "@/components/site/DataFooter";
 import CareerHero from "@/components/career/CareerHero";
@@ -20,6 +20,15 @@ export default function Career() {
 
   const scrollToAbout = useCallback(() => {
     aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === "#positions") {
+      const timer = setTimeout(() => {
+        positionsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (

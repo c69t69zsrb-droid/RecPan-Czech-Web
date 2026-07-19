@@ -198,7 +198,7 @@ export const translations = {
   // ── Career ──
   "career.label": { cs: "Kariéra", en: "Career" },
   "career.heroHeadline": { cs: "Budujte budoucnost recyklace s námi", en: "Build the future of recycling with us" },
-  "career.heroSubtitle": { cs: "V RecPan budujeme jednu z nejmodernějších recyklačních linek pro fotovoltaické panely v Evropě. Přidejte se k našemu týmu v Příbrami a pomozte tvořit budoucnost udržitelného průmyslu.", en: "At RecPan, we are building one of the most advanced photovoltaic recycling facilities in Europe. Join our team in Příbram and help create the future of sustainable industry." },
+  "career.heroSubtitle": { cs: "RecPan aktivně roste a rozšiřuje svůj tým pro nový dvousměnný provoz v Příbrami. Nabízíme pracovní příležitosti napříč několika odděleními a hledáme motivované lidi, kteří se s námi podílí na budoucnosti recyklace fotovoltaických panelů.", en: "RecPan is actively growing and expanding its workforce for a new two-shift operation in Příbram. We are hiring multiple employees across several departments and looking for motivated people to join us in shaping the future of photovoltaic panel recycling." },
   "career.heroButton": { cs: "Zobrazit otevřené pozice", en: "View Open Positions" },
   "career.heroSecondaryCta": { cs: "Poznejte RecPan", en: "Learn About RecPan" },
   "career.heroLocation": { cs: "Příbram, Česká republika", en: "Příbram, Czech Republic" },
