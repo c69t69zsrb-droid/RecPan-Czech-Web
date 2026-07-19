@@ -72,13 +72,14 @@ export default function DataFooter({ onNavigate }) {
         {/* Left: contact + brand */}
         <div className="flex flex-col justify-between">
           <div className="font-heading text-[10px] text-titanium/80 tracking-[0.1em] space-y-1">
-            <p>Petrská 1033/66, 
-110 00 Prague, Czech Republic</p>
-            <p>office@rec-pan.cz 
-+420 603 598 400</p>
-            <p>www.rec-pan.cz</p>
-            <p>RecPan s.r.o. 
-IČO: 23695781</p>
+            <p>RecPan s.r.o.</p>
+            <p>Petrská 1166/33, 110 00 Prague 1, Czech Republic</p>
+            <p>
+              <a href="mailto:office@rec-pan.cz" className="hover:text-brand-green transition-colors">office@rec-pan.cz</a>{" "}
+              <a href="tel:+420730445454" className="hover:text-brand-green transition-colors">+420 730 445 454</a>
+            </p>
+            <p>www.rec-pan.eu</p>
+            <p>IČO: 23695781, DIČ: CZ23695781</p>
           </div>
           <FooterLogo />
         </div>
@@ -88,10 +89,10 @@ IČO: 23695781</p>
           <div className="space-y-3">
             <p className="font-heading text-[9px] uppercase tracking-[0.25em] text-titanium/30 mb-2">{t("footer.navLabel")}</p>
             {navLinks.map((link) => <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {e.preventDefault();handleNav(link.href);}}
-                className="block font-heading text-xs text-titanium/40 hover:text-brand-green transition-colors">
+              key={link.href}
+              href={link.href}
+              onClick={(e) => {e.preventDefault();handleNav(link.href);}}
+              className="block font-heading text-xs text-titanium/40 hover:text-brand-green transition-colors">
               
                 {link.label}
               </a>

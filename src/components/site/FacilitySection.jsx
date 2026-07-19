@@ -17,7 +17,7 @@ export default function FacilitySection() {
           transition={{ duration: 0.6 }}
           className="mb-16">
 
-          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 mb-20">{t("facility.label")}</p>
+          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 mb-3">{t("facility.label")}</p>
           <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian max-w-2xl">{t("facility.title")}</h2>
         </motion.div>
 

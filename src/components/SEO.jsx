@@ -34,23 +34,25 @@ export const ORGANIZATION_DATA = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "RecPan s.r.o.",
+  legalName: "RecPan s.r.o.",
   url: SITE_URL,
   logo: LOGO_URL,
   description: "Next-generation solar panel recycling technology.",
   sameAs: [],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Petrská 1033/66",
-    addressLocality: "Prague",
+    streetAddress: "Petrská 1166/33",
+    addressLocality: "Prague 1",
     postalCode: "110 00",
     addressCountry: "CZ",
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+420603598400",
+    telephone: "+420730445454",
     email: "office@rec-pan.cz",
     contactType: "customer service",
   },
+  vatID: "CZ23695781",
 };
 
 export const WEBSITE_DATA = {
@@ -64,22 +66,24 @@ export const LOCAL_BUSINESS_DATA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "RecPan s.r.o.",
+  legalName: "RecPan s.r.o.",
   url: SITE_URL,
   image: DEFAULT_OG_IMAGE,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Petrská 1033/66",
-    addressLocality: "Prague",
+    streetAddress: "Petrská 1166/33",
+    addressLocality: "Prague 1",
     postalCode: "110 00",
     addressCountry: "CZ",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 49.6111,
-    longitude: 14.0056,
+    latitude: 50.0875,
+    longitude: 14.4213,
   },
-  telephone: "+420603598400",
+  telephone: "+420730445454",
   email: "office@rec-pan.cz",
+  vatID: "CZ23695781",
   areaServed: "Europe",
 };
 

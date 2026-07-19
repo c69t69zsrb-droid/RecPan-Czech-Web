@@ -50,7 +50,6 @@
   }
   body {
     @apply bg-background text-foreground font-body;
-    padding-left: 8px;
   }
   html {
     scroll-behavior: smooth;

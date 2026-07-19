@@ -1,5 +1,6 @@
 export const newsCategories = [
   { key: "all", cs: "Vše", en: "All" },
+  { key: "company", cs: "Společnost", en: "Company" },
   { key: "expansion", cs: "Expanze", en: "Expansion" },
   { key: "technology", cs: "Technologie", en: "Technology" },
   { key: "facility", cs: "Zařízení", en: "Facility" },
@@ -13,6 +14,47 @@ export const getCategoryLabel = (key, lang) => {
 };
 
 export const newsArticles = [
+  {
+    slug: "recpan-expanding-team-pribram",
+    categoryKey: "company",
+    image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/253ebfb13_ChatGPTImageJul19202601_59_05AM.png",
+    translations: {
+      cs: {
+        title: "RecPan sestavuje tým pro nové recyklační centrum v Příbrami",
+        category: "Společnost",
+        date: "18. čvc 2026",
+        excerpt: "Výstavba nového recyklačního centra RecPan v Příbrami vstupuje do další fáze. Otevíráme nové pracovní příležitosti ve výrobě, obsluze technologií, údržbě, chemii i administrativě. Prozkoumejte volné pozice a staňte se součástí týmu.",
+        content: [
+          "Výstavba nového recyklačního centra společnosti RecPan v Příbrami vstupuje do další fáze. Projekt se posouvá od stavebních prací k instalaci technologií a přípravě spuštění provozu, začínáme sestavovat tým, který bude stát u zrodu jednoho z technologicky nejvyspělejších zařízení pro recyklaci fotovoltaických panelů v Evropě.",
+          "Nové centrum bude zpracovávat vysloužilé fotovoltaické panely pomocí moderních mechanických a chemických technologií a vracet do oběhu cenné suroviny, jako jsou sklo, hliník, měď, stříbro nebo křemík.",
+          "S rozvojem projektu otevíráme nové pracovní příležitosti ve výrobě, obsluze technologií, údržbě, chemii i administrativě. Hledáme lidi, kteří chtějí být od samého začátku u projektu s mezinárodními ambicemi a podílet se na spuštění zcela nového průmyslového provozu.",
+          "Práce v RecPan není jen běžné zaměstnání ve výrobě. Nový tým bude společně uvádět do provozu technologii, která pomáhá vracet cenné materiály zpět do výroby a podporuje rozvoj cirkulární ekonomiky.",
+          "Uvítáme zkušené odborníky i motivované kolegy, kteří mají chuť učit se novým věcem a stát se členy moderního průmyslu budoucnosti. Důležitější než předchozí zkušenosti je pro nás odpovědný přístup, ochota rozvíjet se a zájem zapojit se do projektu, který v České republice nemá obdoby.",
+          "Podívejte se na aktuální nabídky na naší stránce [Kariéra](career) a staňte se součástí týmu od prvního dne.",
+          { cta: { text: "Zobrazit volné pozice", route: "career", hash: "positions" } },
+          "Těšíme se na nové kolegy, kteří budou společně s námi budovat budoucnost recyklace fotovoltaických panelů.",
+        ],
+        quote: "Tým RecPan",
+      },
+      en: {
+        title: "RecPan is Building a Team for Its New Recycling Facility in Příbram",
+        category: "Company",
+        date: "July 18, 2026",
+        excerpt: "Construction of RecPan's new recycling facility in Příbram is entering its next phase. We are opening new job opportunities in production, technology operation, maintenance, chemistry, and administration. Explore open positions and become part of the team.",
+        content: [
+          "Construction of RecPan's new recycling facility in Příbram is entering its next phase. The project is moving from construction work to technology installation and preparation for operational launch, and we are beginning to assemble the team that will stand at the birth of one of Europe's most technologically advanced facilities for photovoltaic panel recycling.",
+          "The new facility will process end-of-life photovoltaic panels using modern mechanical and chemical technologies, returning valuable raw materials such as glass, aluminum, copper, silver, and silicon back into circulation.",
+          "As the project develops, we are opening new job opportunities in production, technology operation, maintenance, chemistry, and administration. We are looking for people who want to be part of a project with international ambitions from the very beginning and to participate in launching an entirely new industrial operation.",
+          "Working at RecPan is not just an ordinary manufacturing job. The new team will jointly commission technology that helps return valuable materials to production and supports the development of a circular economy.",
+          "We welcome experienced professionals as well as motivated colleagues who are eager to learn new things and become members of a modern industry of the future. More important to us than previous experience is a responsible approach, a willingness to grow, and an interest in joining a project that has no equivalent in the Czech Republic.",
+          "Check out the current openings on our [Careers](career) page and become part of the team from day one.",
+          { cta: { text: "View open positions", route: "career", hash: "positions" } },
+          "We look forward to new colleagues who will build the future of photovoltaic panel recycling together with us.",
+        ],
+        quote: "RecPan Team",
+      },
+    },
+  },
   {
     slug: "recpan-at-intersolar-europe",
     categoryKey: "events",

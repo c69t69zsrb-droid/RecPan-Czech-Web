@@ -7,7 +7,7 @@ export default function AboutSection() {
 
   const credentials = [
     { label: t("about.credCapacity"), value: "7 000 t" },
-    { label: t("about.credRecovery"), value: "< 97 %" },
+    { label: t("about.credRecovery"), value: "> 97 %" },
     { label: t("about.credHq"), value: t("about.credHqValue") },
     { label: t("about.credExpansion"), value: t("about.credExpansionValue") },
   ];
@@ -32,7 +32,7 @@ export default function AboutSection() {
           <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 mb-3">
             {t("about.label")}
           </p>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian max-w-2xl py-20">{t("about.title")}</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian max-w-2xl">{t("about.title")}</h2>
         </motion.div>
 
         {/* Credentials bar */}

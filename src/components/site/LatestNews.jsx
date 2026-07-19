@@ -36,7 +36,7 @@ export default function LatestNews() {
           
           <div>
             <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30">{t("news.latestLabel")}</p>
-            <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-20">{t("news.latestTitle")}</h2>
+            <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian">{t("news.latestTitle")}</h2>
           </div>
           <button
             onClick={() => navigate(buildPath("news", language))}

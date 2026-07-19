@@ -10,6 +10,15 @@ export default function OpenPositions() {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
 
+  const openingsLabel = (count) => {
+    if (language === "cs") {
+      if (count === 1) return "1 otevřená pozice";
+      if (count >= 2 && count <= 4) return `${count} otevřené pozice`;
+      return `${count} otevřených pozic`;
+    }
+    return count === 1 ? "1 open position" : `${count} open positions`;
+  };
+
   return (
     <section id="positions" className="px-6 md:px-[4.166%] py-16 md:py-24 border-t border-obsidian/10">
       <motion.div
@@ -39,9 +48,16 @@ export default function OpenPositions() {
             onClick={(e) => { e.preventDefault(); navigate(buildPath("position", language, { id: pos.id })); }}
             className="group border border-obsidian/10 rounded-xl p-8 md:p-10 hover:border-brand-green/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer bg-white/30"
           >
-            <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.01em] text-obsidian mb-4 group-hover:text-brand-green transition-colors duration-300">
-              {pos.title[language]}
-            </h3>
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.01em] text-obsidian group-hover:text-brand-green transition-colors duration-300">
+                {pos.title[language]}
+              </h3>
+              {pos.positionsAvailable > 0 && (
+                <span className="inline-flex items-center shrink-0 bg-brand-green/10 text-brand-green font-heading text-[10px] font-semibold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full whitespace-nowrap">
+                  {openingsLabel(pos.positionsAvailable)}
+                </span>
+              )}
+            </div>
 
             <p className="font-heading text-sm leading-relaxed text-obsidian/50 font-light mb-6">
               {pos.shortDescription[language]}
