@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, AlertCircle, Loader2 } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const initialFormData = { name: "", company: "", email: "", phone: "", volume: "", country: "", notes: "" };
@@ -25,19 +24,50 @@ export default function LogisticsNexus() {
     }
     setStatus("sending");
     try {
-      const res = await base44.functions.invoke("sendEnquiryEmail", {
-        orgType,
-        panelType,
-        name: formData.name,
-        company: formData.company,
-        email: formData.email,
-        phone: formData.phone,
-        volume: formData.volume,
-        country: formData.country,
-        notes: formData.notes,
-      });
-      if (res?.data?.success !== true) {
-        throw new Error(res?.data?.error || "Email delivery failed");
+      const response = await fetch(
+        "https://base44.app/api/apps/6a42ca6def2b3fde835b3720/functions/sendEnquiryEmail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify({
+            orgType,
+            panelType,
+            name: formData.name,
+            company: formData.company,
+            email: formData.email,
+            phone: formData.phone,
+            volume: formData.volume,
+            country: formData.country,
+            notes: formData.notes,
+          }),
+        }
+      );
+
+      const responseText = await response.text();
+
+      let result;
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        result = { raw: responseText };
+      }
+
+      if (!response.ok || result?.success !== true) {
+        const rawError =
+          result?.error ||
+          result?.details ||
+          result?.message ||
+          result?.raw ||
+          `Email delivery failed with HTTP ${response.status}`;
+
+        throw new Error(
+          typeof rawError === "string"
+            ? rawError
+            : JSON.stringify(rawError)
+        );
       }
       setFormData(initialFormData);
       setOrgType("");

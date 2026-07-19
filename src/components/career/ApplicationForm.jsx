@@ -53,18 +53,48 @@ export default function ApplicationForm({ selectedPosition }) {
         const uploadRes = await base44.integrations.Core.UploadFile({ file: cvFile });
         cvUrl = uploadRes?.file_url || "";
       }
-      const res = await base44.functions.invoke("sendCareerApplication", {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        position: formData.position,
-        intro: formData.intro,
-        cvUrl,
-      });
-      if (res?.data?.success !== true) {
-        const rawError = res?.data?.error || res?.data?.details || "Application submission failed";
-        throw new Error(typeof rawError === "string" ? rawError : JSON.stringify(rawError));
+      const response = await fetch(
+        "https://base44.app/api/apps/6a42ca6def2b3fde835b3720/functions/sendCareerApplication",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            position: formData.position,
+            intro: formData.intro,
+            cvUrl,
+          }),
+        }
+      );
+
+      const responseText = await response.text();
+
+      let result;
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        result = { raw: responseText };
+      }
+
+      if (!response.ok || result?.success !== true) {
+        const rawError =
+          result?.error ||
+          result?.details ||
+          result?.message ||
+          result?.raw ||
+          `Application submission failed with HTTP ${response.status}`;
+
+        throw new Error(
+          typeof rawError === "string"
+            ? rawError
+            : JSON.stringify(rawError)
+        );
       }
       setFormData({ firstName: "", lastName: "", email: "", phone: "", position: "", intro: "" });
       handleRemoveFile();
