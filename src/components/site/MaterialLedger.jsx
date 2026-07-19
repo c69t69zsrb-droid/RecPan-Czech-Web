@@ -8,43 +8,43 @@ export default function MaterialLedger() {
   const scrollRef = useRef(null);
 
   const materials = [
-    {
-      name: t("materials.glassName"),
-      code: "GL-001",
-      purity: "99,2 %",
-      recovery: "96 %",
-      application: t("materials.glassApp"),
-      image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/73bf61076_ChatGPT_Image_Jun_29__2026__07_53_55_PM.png",
-      alt: t("materials.glassAlt"),
-    },
-    {
-      name: t("materials.siliconName"),
-      code: "SI-002",
-      purity: "98,5–99,5 %",
-      recovery: "94 %",
-      application: t("materials.siliconApp"),
-      image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/74bbdb719_ChatGPT_Image_Jun_29__2026__08_07_34_PM.png",
-      alt: t("materials.siliconAlt"),
-    },
-    {
-      name: t("materials.aluminumName"),
-      code: "AL-003",
-      purity: "98,5–99 %",
-      recovery: "100 %",
-      application: t("materials.aluminumApp"),
-      image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/c9786e553_ChatGPT_Image_Jun_29__2026__08_01_14_PM.png",
-      alt: t("materials.aluminumAlt"),
-    },
-    {
-      name: t("materials.metalsName"),
-      code: "CU-004",
-      purity: "99 %+",
-      recovery: "99 %",
-      application: t("materials.metalsApp"),
-      image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/1ed86a912_generated_image.png",
-      alt: t("materials.metalsAlt"),
-    },
-  ];
+  {
+    name: t("materials.glassName"),
+    code: "GL-001",
+    purity: "99,2 %",
+    recovery: "96 %",
+    application: t("materials.glassApp"),
+    image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/73bf61076_ChatGPT_Image_Jun_29__2026__07_53_55_PM.png",
+    alt: t("materials.glassAlt")
+  },
+  {
+    name: t("materials.siliconName"),
+    code: "SI-002",
+    purity: "98,5–99,5 %",
+    recovery: "94 %",
+    application: t("materials.siliconApp"),
+    image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/74bbdb719_ChatGPT_Image_Jun_29__2026__08_07_34_PM.png",
+    alt: t("materials.siliconAlt")
+  },
+  {
+    name: t("materials.aluminumName"),
+    code: "AL-003",
+    purity: "98,5–99 %",
+    recovery: "100 %",
+    application: t("materials.aluminumApp"),
+    image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/c9786e553_ChatGPT_Image_Jun_29__2026__08_01_14_PM.png",
+    alt: t("materials.aluminumAlt")
+  },
+  {
+    name: t("materials.metalsName"),
+    code: "CU-004",
+    purity: "99 %+",
+    recovery: "99 %",
+    application: t("materials.metalsApp"),
+    image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/1ed86a912_generated_image.png",
+    alt: t("materials.metalsAlt")
+  }];
+
 
   return (
     <section id="materials" className="snap-section relative min-h-0 flex flex-col justify-center py-6 lg:py-0 mt-20 lg:mt-28">
@@ -56,8 +56,8 @@ export default function MaterialLedger() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}>
           
-          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30">{t("materials.label")}</p>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-24">{t("materials.title")}</h2>
+          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 my-4">{t("materials.label")}</p>
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-16">{t("materials.title")}</h2>
         </motion.div>
       </div>
 

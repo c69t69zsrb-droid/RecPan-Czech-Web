@@ -7,7 +7,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { buildPath } from "@/lib/i18n/routes";
 
 const getPreview = (tr) => {
-  const source = tr.excerpt || (tr.content && tr.content[0]) || "";
+  const source = tr.excerpt || tr.content && tr.content[0] || "";
   const sentences = source.match(/[^.!?]+[.!?]*/g) || [source];
   let preview = sentences.slice(0, 2).join(" ").trim();
   const max = 140;
@@ -26,7 +26,7 @@ export default function LatestNews() {
 
   return (
     <section id="news" className="snap-section relative min-h-0 flex flex-col justify-center py-6 lg:py-9 border-t border-obsidian/10 mt-20 lg:mt-28">
-      <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
+      <div className="pl-10 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] pr-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function LatestNews() {
           
           <div>
             <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30">{t("news.latestLabel")}</p>
-            <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian">{t("news.latestTitle")}</h2>
+            <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-16">{t("news.latestTitle")}</h2>
           </div>
           <button
             onClick={() => navigate(buildPath("news", language))}
@@ -51,15 +51,15 @@ export default function LatestNews() {
           {articles.map((article, i) => {
             const tr = article.translations[language];
             return (
-            <motion.a
-            key={article.slug}
-            href={buildPath("article", language, { slug: article.slug })}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            onClick={(e) => { e.preventDefault(); navigate(buildPath("article", language, { slug: article.slug })); }}
-            className="group cursor-pointer border-t border-obsidian/10 hover:-translate-y-1 transition-all duration-300 block">
+              <motion.a
+                key={article.slug}
+                href={buildPath("article", language, { slug: article.slug })}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                onClick={(e) => {e.preventDefault();navigate(buildPath("article", language, { slug: article.slug }));}}
+                className="group cursor-pointer border-t border-obsidian/10 hover:-translate-y-1 transition-all duration-300 block">
             
               <div className="flex items-center gap-3 mb-4">
                 <span className="font-heading text-[10px] uppercase tracking-[0.2em] text-brand-green font-medium">
@@ -71,7 +71,7 @@ export default function LatestNews() {
               </div>
 
               <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-4 bg-obsidian/5">
-                {article.image ? (
+                {article.image ?
                   <img
                     src={article.image}
                     alt={tr.title}
@@ -79,13 +79,13 @@ export default function LatestNews() {
                     height={225}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                    style={article.imagePosition ? { objectPosition: article.imagePosition } : undefined}
-                  />
-                ) : (
+                    style={article.imagePosition ? { objectPosition: article.imagePosition } : undefined} /> :
+
+
                   <div className="w-full h-full bg-obsidian flex items-center justify-center">
                     <span className="font-heading text-[10px] uppercase tracking-[0.3em] text-titanium/40">RecPan</span>
                   </div>
-                )}
+                  }
               </div>
 
               <h3 className="font-heading text-lg md:text-xl font-semibold tracking-[-0.01em] text-obsidian mb-2 group-hover:text-brand-green transition-colors duration-300 line-clamp-2">
@@ -98,8 +98,8 @@ export default function LatestNews() {
                 {t("news.readMore")}
                 <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
               </span>
-            </motion.a>
-            );
+            </motion.a>);
+
           })}
         </div>
       </div>

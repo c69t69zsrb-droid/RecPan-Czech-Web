@@ -7,15 +7,15 @@ export default function TrustSection() {
   const { t } = useLanguage();
 
   const items = [
-    { title: t("trust.item1Title"), description: t("trust.item1Desc"), icon: Factory },
-    { title: t("trust.item2Title"), description: t("trust.item2Desc"), icon: Cpu },
-    { title: t("trust.item3Title"), description: t("trust.item3Desc"), icon: Recycle },
-    { title: t("trust.item4Title"), description: t("trust.item4Desc"), icon: Globe },
-    { title: t("trust.item5Title"), description: t("trust.item5Desc"), icon: Handshake },
-  ];
+  { title: t("trust.item1Title"), description: t("trust.item1Desc"), icon: Factory },
+  { title: t("trust.item2Title"), description: t("trust.item2Desc"), icon: Cpu },
+  { title: t("trust.item3Title"), description: t("trust.item3Desc"), icon: Recycle },
+  { title: t("trust.item4Title"), description: t("trust.item4Desc"), icon: Globe },
+  { title: t("trust.item5Title"), description: t("trust.item5Desc"), icon: Handshake }];
+
 
   return (
-    <section id="trust" className="snap-section relative min-h-0 flex flex-col justify-center lg:py-9 border-t border-obsidian/10 py-4">
+    <section id="trust" className="snap-section relative min-h-0 flex flex-col justify-center lg:py-9 border-t border-obsidian/10 py-5 my-1">
       <div className="pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%]">
         {/* Header */}
         <motion.div
@@ -26,7 +26,7 @@ export default function TrustSection() {
           className="mb-20">
           
           <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 mb-4">{t("trust.label")}</p>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-16">{t("trust.title")}</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-10">{t("trust.title")}</h2>
         </motion.div>
 
         {/* Items */}

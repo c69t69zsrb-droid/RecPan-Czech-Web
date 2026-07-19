@@ -6,11 +6,11 @@ export default function ExpansionSection() {
   const { t } = useLanguage();
 
   const locations = [
-    { statusKey: "current", country: t("expansion.czechia"), date: null },
-    { statusKey: "expansion", country: t("expansion.spain"), date: "7 / 2027" },
-    { statusKey: "expansion", country: t("expansion.italy"), date: "8 / 2027" },
-    { statusKey: "expansion", country: t("expansion.australia"), date: "10 / 2027" },
-  ];
+  { statusKey: "current", country: t("expansion.czechia"), date: null },
+  { statusKey: "expansion", country: t("expansion.spain"), date: "7 / 2027" },
+  { statusKey: "expansion", country: t("expansion.italy"), date: "8 / 2027" },
+  { statusKey: "expansion", country: t("expansion.australia"), date: "10 / 2027" }];
+
 
   return (
     <section id="expansion" className="snap-section relative min-h-0 flex flex-col justify-center py-8 lg:py-12">
@@ -23,8 +23,8 @@ export default function ExpansionSection() {
           transition={{ duration: 0.6 }}
           className="mb-24">
           
-          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 pb-12">{t("expansion.label")}</p>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian mb-6 py-12">{t("expansion.title")}</h2>
+          <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 pb-16">{t("expansion.label")}</p>
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian py-1">{t("expansion.title")}</h2>
           <p className="font-heading text-sm md:text-base text-obsidian/50 max-w-xl font-light leading-relaxed">
             {t("expansion.desc")}
           </p>
@@ -67,10 +67,10 @@ export default function ExpansionSection() {
                   {location.country}
                 </h3>
                 {location.date &&
-                <p className="font-heading text-sm text-obsidian/40 mt-2 font-light">
+              <p className="font-heading text-sm text-obsidian/40 mt-2 font-light">
                   {location.date}
                 </p>
-                }
+              }
               </motion.div>
             )}
           </div>

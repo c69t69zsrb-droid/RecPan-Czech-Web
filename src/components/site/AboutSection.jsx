@@ -6,17 +6,17 @@ export default function AboutSection() {
   const { t } = useLanguage();
 
   const credentials = [
-    { label: t("about.credCapacity"), value: "7 000 t" },
-    { label: t("about.credRecovery"), value: "> 97 %" },
-    { label: t("about.credHq"), value: t("about.credHqValue") },
-    { label: t("about.credExpansion"), value: t("about.credExpansionValue") },
-  ];
+  { label: t("about.credCapacity"), value: "7 000 t" },
+  { label: t("about.credRecovery"), value: "> 97 %" },
+  { label: t("about.credHq"), value: t("about.credHqValue") },
+  { label: t("about.credExpansion"), value: t("about.credExpansionValue") }];
+
 
   const pillars = [
-    { title: t("about.pillar1Title"), description: t("about.pillar1Desc") },
-    { title: t("about.pillar2Title"), description: t("about.pillar2Desc") },
-    { title: t("about.pillar3Title"), description: t("about.pillar3Desc") },
-  ];
+  { title: t("about.pillar1Title"), description: t("about.pillar1Desc") },
+  { title: t("about.pillar2Title"), description: t("about.pillar2Desc") },
+  { title: t("about.pillar3Title"), description: t("about.pillar3Desc") }];
+
 
   return (
     <section id="about" className="snap-section relative min-h-0 flex flex-col justify-center py-6 lg:py-9">
@@ -32,7 +32,7 @@ export default function AboutSection() {
           <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-obsidian/30 mb-3">
             {t("about.label")}
           </p>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian max-w-2xl">{t("about.title")}</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-[-0.02em] text-obsidian max-w-2xl py-12">{t("about.title")}</h2>
         </motion.div>
 
         {/* Credentials bar */}
