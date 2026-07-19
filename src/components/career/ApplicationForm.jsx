@@ -18,6 +18,7 @@ export default function ApplicationForm({ selectedPosition }) {
   const [cvFile, setCvFile] = useState(null);
   const [cvFileName, setCvFileName] = useState("");
   const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const fileInputRef = useRef(null);
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -45,6 +46,7 @@ export default function ApplicationForm({ selectedPosition }) {
   const handleSubmit = async () => {
     if (!formData.firstName || !formData.lastName || !formData.email || !isValidEmail(formData.email)) return;
     setStatus("sending");
+    setErrorMsg("");
     try {
       let cvUrl = "";
       if (cvFile) {
@@ -61,13 +63,15 @@ export default function ApplicationForm({ selectedPosition }) {
         cvUrl,
       });
       if (res?.data?.success !== true) {
-        throw new Error(res?.data?.error || "Application submission failed");
+        const rawError = res?.data?.error || res?.data?.details || "Application submission failed";
+        throw new Error(typeof rawError === "string" ? rawError : JSON.stringify(rawError));
       }
       setFormData({ firstName: "", lastName: "", email: "", phone: "", position: "", intro: "" });
       handleRemoveFile();
       setStatus("success");
     } catch (e) {
       console.error("Career application failed:", e);
+      setErrorMsg(e?.message || String(e));
       setStatus("error");
     }
   };
@@ -229,9 +233,16 @@ export default function ApplicationForm({ selectedPosition }) {
       {status === "error" && (
         <div role="alert" className="flex items-start gap-3 mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
           <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
-          <p className="font-heading text-sm text-red-700 leading-relaxed">
-            {t("career.formErrorDesc")}
-          </p>
+          <div>
+            <p className="font-heading text-sm text-red-700 leading-relaxed">
+              {t("career.formErrorDesc")}
+            </p>
+            {errorMsg && (
+              <p className="font-heading text-xs text-red-600/90 leading-relaxed mt-2 break-words">
+                {errorMsg}
+              </p>
+            )}
+          </div>
         </div>
       )}
 
