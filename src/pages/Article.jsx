@@ -12,7 +12,6 @@ import SEO, { articleData, breadcrumbData } from "@/components/SEO";
 const articleDates = {
   "recpan-expanding-team-pribram": "2026-07-18",
   "recpan-at-intersolar-europe": "2026-06-17",
-  "recpan-begins-international-expansion": "2026-06-11",
   "new-recycling-facility-under-development": "2025-11-20",
 };
 

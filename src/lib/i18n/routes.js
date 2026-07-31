@@ -2,7 +2,6 @@
 const articleSlugCs = {
   "recpan-expanding-team-pribram": "recpan-rozsiruje-tym-pribram",
   "recpan-at-intersolar-europe": "recpan-na-intersolar-europe",
-  "recpan-begins-international-expansion": "recpan-zahajuje-mezinarodni-expanzi",
   "new-recycling-facility-under-development": "vystavba-prvniho-recyklacniho-centra",
 };
 

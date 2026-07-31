@@ -8,7 +8,6 @@ import MaterialLedger from "@/components/site/MaterialLedger";
 import CircularityMatrix from "@/components/site/CircularityMatrix";
 import AboutSection from "@/components/site/AboutSection";
 import WhyRecPan from "@/components/site/WhyRecPan";
-import ExpansionSection from "@/components/site/ExpansionSection";
 import TrustSection from "@/components/site/TrustSection";
 import LatestNews from "@/components/site/LatestNews";
 import LogisticsNexus from "@/components/site/LogisticsNexus";
@@ -58,7 +57,6 @@ export default function Home() {
       <MaterialLedger />
       <LatestNews />
       <TrustSection />
-      <ExpansionSection />
       <FacilitySection />
       <LogisticsNexus />
       <DataFooter onNavigate={scrollTo} />
