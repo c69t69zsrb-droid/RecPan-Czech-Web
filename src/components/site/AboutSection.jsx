@@ -8,8 +8,7 @@ export default function AboutSection() {
   const credentials = [
   { label: t("about.credCapacity"), value: "7 000 t" },
   { label: t("about.credRecovery"), value: "> 97 %" },
-  { label: t("about.credHq"), value: t("about.credHqValue") },
-  { label: t("about.credExpansion"), value: t("about.credExpansionValue") }];
+  { label: t("about.credHq"), value: t("about.credHqValue") }];
 
 
   const pillars = [
@@ -41,7 +40,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 border-y border-obsidian/10">
+          className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20 border-y border-obsidian/10">
           
           {credentials.map((item) =>
           <div key={item.label}>

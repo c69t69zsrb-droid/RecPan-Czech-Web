@@ -7,6 +7,8 @@ import { animate } from "framer-motion";
 // Operating hours: Mon–Fri, 07:00–21:00 (Europe/Prague).
 // Outside operating hours (nights & weekends): value stays fixed.
 const START_DATE = "2026-06-29 20:30";
+// Counter frozen at this date — remove FREEZE_DATE to resume live counting.
+const FREEZE_DATE = "2026-07-31 23:14";
 
 function parsePragueDate(str) {
   const [datePart, timePart] = str.split(" ");
@@ -43,7 +45,8 @@ function getPragueParts(date) {
 
 function calculateTonnes() {
   const start = parsePragueDate(START_DATE).getTime();
-  const now = Date.now();
+  const freeze = parsePragueDate(FREEZE_DATE).getTime();
+  const now = Math.min(Date.now(), freeze);
   if (start > now) return 0;
   const HOUR = 3600000;
   let operatingMs = 0;

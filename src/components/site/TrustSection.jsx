@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Factory, Cpu, Recycle, Globe, Handshake } from "lucide-react";
+import { Factory, Cpu, Recycle, Handshake } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 
 export default function TrustSection() {
@@ -10,7 +10,6 @@ export default function TrustSection() {
   { title: t("trust.item1Title"), description: t("trust.item1Desc"), icon: Factory },
   { title: t("trust.item2Title"), description: t("trust.item2Desc"), icon: Cpu },
   { title: t("trust.item3Title"), description: t("trust.item3Desc"), icon: Recycle },
-  { title: t("trust.item4Title"), description: t("trust.item4Desc"), icon: Globe },
   { title: t("trust.item5Title"), description: t("trust.item5Desc"), icon: Handshake }];
 
 
@@ -30,7 +29,7 @@ export default function TrustSection() {
         </motion.div>
 
         {/* Items */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (

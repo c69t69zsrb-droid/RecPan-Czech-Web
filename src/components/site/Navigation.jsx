@@ -38,7 +38,6 @@ export default function Navigation({ onNavigate }) {
     { label: t("nav.materials"), href: "#materials", tint: "bg-brand-green/[0.05]" },
     { label: t("nav.news"), href: buildPath("news", language), tint: "bg-brand-green/[0.03]", isRoute: true },
     { label: t("nav.career"), href: buildPath("career", language), tint: "bg-brand-green/[0.03]", isRoute: true },
-    { label: t("nav.expansion"), href: "#expansion", tint: "bg-brand-green/[0.05]" },
     { label: t("nav.contact"), href: "#contact", tint: "bg-brand-dark/[0.03]" },
   ];
 

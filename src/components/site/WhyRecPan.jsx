@@ -8,7 +8,6 @@ export default function WhyRecPan() {
   const features = [
   { title: t("why.f1Title"), description: t("why.f1Desc") },
   { title: t("why.f2Title"), description: t("why.f2Desc") },
-  { title: t("why.f3Title"), description: t("why.f3Desc") },
   { title: t("why.f4Title"), description: t("why.f4Desc") }];
 
 
@@ -30,7 +29,7 @@ export default function WhyRecPan() {
         </motion.div>
 
         {/* Feature cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) =>
           <motion.div
             key={feature.title}
