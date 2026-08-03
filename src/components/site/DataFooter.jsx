@@ -2,16 +2,13 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import FooterLogo from "@/components/site/FooterLogo";
-import { useTonnesCounter } from "@/hooks/useTonnesCounter";
 import { useLanguage } from "@/hooks/useLanguage";
 import { buildPath, parsePath } from "@/lib/i18n/routes";
 
 export default function DataFooter({ onNavigate }) {
   const { t, language } = useLanguage();
-  const tonnes = useTonnesCounter();
   const location = useLocation();
   const navigate = useNavigate();
-  const locale = language === "cs" ? "cs-CZ" : "en-US";
 
   const handleNav = (href) => {
     const { route } = parsePath(location.pathname);
@@ -21,17 +18,6 @@ export default function DataFooter({ onNavigate }) {
       navigate(`${buildPath("home", language)}${href}`);
     }
   };
-
-  const fmt = (val) => val.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-
-  const impactData = [
-  { label: t("footer.tonnesRecycled"), value: tonnes },
-  { label: t("footer.glass"), value: tonnes * 0.76 },
-  { label: t("footer.aluminum"), value: tonnes * 0.08 },
-  { label: t("footer.silicon"), value: tonnes * 0.05 },
-  { label: t("footer.copper"), value: tonnes * 0.01 },
-  { label: t("footer.co2"), value: tonnes * 2.2 }];
-
 
   const navLinks = [
   { label: t("nav.materials"), href: "#materials" },
@@ -48,25 +34,6 @@ export default function DataFooter({ onNavigate }) {
 
   return (
     <footer className="relative bg-obsidian text-titanium pl-10 pr-6 md:pl-[calc(4.166%_+_1rem)] md:pr-[4.166%] py-6 md:py-9">
-      {/* Impact metrics */}
-      <div className="mb-16 md:mb-24">
-        <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-titanium/70 mb-8">
-          {t("footer.impactLabel")}
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12">
-          {impactData.map((item) =>
-          <div key={item.label}>
-              <p className="font-heading text-[9px] uppercase tracking-[0.25em] text-titanium/70 mb-2">
-                {item.label}
-              </p>
-              <p className="font-heading text-xl md:text-2xl font-bold text-brand-green tracking-tight">
-                {fmt(item.value)} t
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Main footer content */}
       <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-0">
         {/* Left: contact + brand */}

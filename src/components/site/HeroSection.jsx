@@ -1,15 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { useTonnesCounter } from "@/hooks/useTonnesCounter";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const HERO_IMAGE = "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/2c1fd4474_generated_image.png";
 
 export default function HeroSection({ onNavigate }) {
   const { t, language } = useLanguage();
-  const displayValue = useTonnesCounter();
-  const locale = language === "cs" ? "cs-CZ" : "en-US";
 
   return (
     <section id="hero" className="snap-section relative min-h-screen flex flex-col overflow-hidden">
@@ -49,21 +46,6 @@ export default function HeroSection({ onNavigate }) {
             
             {t("hero.description")}
           </motion.p>
-
-          {/* Live counter */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-8">
-            
-            <p className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 mb-1">
-              {t("hero.counterLabel")}
-            </p>
-            <p className="font-heading text-4xl font-bold text-brand-green tracking-tight">
-              {displayValue.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} t
-            </p>
-          </motion.div>
 
           <motion.button
             initial={{ opacity: 0 }}
