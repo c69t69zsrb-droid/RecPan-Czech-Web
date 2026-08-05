@@ -32,3 +32,16 @@ npx skills add base44/skills
 - Prefer the existing Base44 CLI workflow over adding new npm scripts for Base44-specific tasks.
 - Reuse the existing SDK client and Vite plugin patterns before adding new Base44 integration paths.
 - Run the relevant checks from `package.json` before finishing code changes.
+
+## PERMANENT ASSET — Email Signature Logo (DO NOT REMOVE)
+
+The file `/public/recpan-email-logo.png` is a permanent public asset used in the company email signatures. This is a backwards-compatibility requirement: existing emails may reference its URL for years.
+
+**Rules that apply to ALL future changes, refactors, regenerations, and exports — regardless of whether the change is related to the email signature:**
+
+- NEVER delete, rename, move, hash, or replace `/public/recpan-email-logo.png`.
+- NEVER convert it into a dynamically generated asset or make it dependent on authentication.
+- The exact public URL must remain permanently valid and served directly as the PNG file: `https://rec-pan.eu/recpan-email-logo.png`
+- The URL must be accessible without authentication, cookies, or redirects to a webpage/route — it must return the PNG via a normal HTTP GET (compatible with Gmail and other email clients).
+- The `vercel.json` rewrite rule already excludes dotfile extensions (`.png`), so this static file is served directly. Do not add any rewrite/route that would shadow `/recpan-email-logo.png`.
+- If the project structure is regenerated or `public/` is reorganized, this file and path MUST be preserved exactly.
