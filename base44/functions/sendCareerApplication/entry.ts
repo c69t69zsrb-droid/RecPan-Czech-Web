@@ -68,8 +68,8 @@ Deno.serve(async (req) => {
     ].join("\n");
 
     const resendPayload = {
-      from: "RecPan Website <no-reply@rec-pan.eu>",
-      to: ["office@rec-pan.cz"],
+      from: "RecPan Website <office@rec-pan.eu>",
+      to: ["office@rec-pan.eu"],
       reply_to: email,
       subject: `Career application — ${position || "General"} — ${name}`,
       text: body,
@@ -127,7 +127,7 @@ Deno.serve(async (req) => {
     }
     console.log(`${tag} email sent successfully`, {
       messageId: result.id,
-      to: "office@rec-pan.cz",
+      to: "office@rec-pan.eu",
       from: resendPayload.from,
     });
 
