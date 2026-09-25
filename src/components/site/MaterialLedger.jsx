@@ -30,7 +30,7 @@ export default function MaterialLedger() {
     name: t("materials.aluminumName"),
     code: "AL-003",
     purity: "98,5–99 %",
-    recovery: "100 %",
+    recovery: "> 99 %",
     application: t("materials.aluminumApp"),
     image: "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/c9786e553_ChatGPT_Image_Jun_29__2026__08_01_14_PM.png",
     alt: t("materials.aluminumAlt")

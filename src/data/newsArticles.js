@@ -14,6 +14,47 @@ export const getCategoryLabel = (key, lang) => {
 
 export const newsArticles = [
   {
+    slug: "recpan-opens-pribram-recycling-plant",
+    categoryKey: "facility",
+    image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/b03fc6f03_IMG_9446.JPG",
+    gallery: [
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/b03fc6f03_IMG_9446.JPG",
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/1575ef455_IMG_9431.JPG",
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/cf0904719_IMG_9439.JPG",
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/3777ae493_IMG_0685.jpeg",
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/b0656e664_IMG_0693.jpeg",
+      "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/1ecc347f7_IMG_0724.jpeg",
+    ],
+    translations: {
+      cs: {
+        title: "Z prázdné haly je připravený provoz. Slavnostně otevíráme 15. října",
+        category: "Zařízení",
+        date: "23. čvc 2026",
+        excerpt: "Na začátku roku tu stála prázdná hala. Dnes je z ní připravený provoz na průmyslové zpracování fotovoltaických panelů. Slavnostně ho otevíráme 15. října.",
+        content: [
+          "Solární panel je navržený tak, aby desítky let držel pohromadě. My řešíme opačný problém: jak ho průmyslově rozdělit zpět na jednotlivé materiálové frakce.",
+          "Rekonstrukce haly v Příbrami je dokončená. Tady vzniká první provoz RecPan. Na ploše zhruba 2 500 m² je prostor pro celý proces: příjem a třídění panelů, mechanické rozebrání, delaminaci a separaci materiálů.",
+          "Provoz je navržený na roční kapacitu 7 000 tun panelů. Z každého panelu získáme více než 97 % hmotnosti v podobě skla, hliníku, křemíku, mědi a stříbra a vracíme je zpět do průmyslu. Celý proces probíhá bez spalování.",
+          "Příbram je pro nás výchozí bod. Zkušenosti z tohoto provozu přeneseme do dalších závodů. Slavnostní otevření proběhne 15. října 2026. Do té doby na našem LinkedInu krok po kroku ukazujeme, jak se z prázdné haly stal fungující provoz, od přípravy prostoru až po první zpracovaný panel.",
+        ],
+        quote: "Tým RecPan",
+      },
+      en: {
+        title: "The Empty Hall Is Now a Completed Facility. We Officially Open on 15 October",
+        category: "Facility",
+        date: "July 23, 2026",
+        excerpt: "At the start of the year there was an empty hall here. Today it is a completed operation for the industrial processing of photovoltaic panels. We officially open it on 15 October.",
+        content: [
+          "A solar panel is designed to hold together for decades. We are solving the opposite problem: how to break it back down industrially into individual material fractions.",
+          "The reconstruction of the hall in Příbram is complete. RecPan's first operation is taking shape here. On an area of roughly 2,500 m² there is room for the entire process: panel intake and sorting, mechanical dismantling, delamination and material separation.",
+          "The facility is designed for an annual capacity of 7,000 tonnes of panels. From every panel we recover more than 97% of its weight in the form of glass, aluminium, silicon, copper and silver, and return these materials to industry. The entire process runs without incineration.",
+          "Příbram is our starting point. We will carry the experience from this operation over to further plants. The official opening will take place on 15 October 2026. Until then, we are showing step by step on our LinkedIn how an empty hall became a working operation, from preparing the space to the first processed panel.",
+        ],
+        quote: "RecPan Team",
+      },
+    },
+  },
+  {
     slug: "recpan-expanding-team-pribram",
     categoryKey: "company",
     image: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/253ebfb13_ChatGPTImageJul19202601_59_05AM.png",

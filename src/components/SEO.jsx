@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getAlternatePaths } from "@/lib/i18n/routes";
 
 const SITE_URL = "https://rec-pan.eu";
-const LOGO_URL = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/161cbfc87_ChatGPTImageJul7202607_43_34PM.png";
+const LOGO_URL = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/0643f48d8_RecPanbezpozadi.png";
 const DEFAULT_OG_IMAGE = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/abdf0ee40_IMG_06852Large.jpg";
 
 function upsertMeta(attr, key, content) {
@@ -30,14 +30,16 @@ function upsertLink(rel, href, hreflang) {
   el.href = href;
 }
 
-export const ORGANIZATION_DATA = {
+export const organizationData = (language = "en") => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "RecPan s.r.o.",
   legalName: "RecPan s.r.o.",
   url: SITE_URL,
   logo: LOGO_URL,
-  description: "Next-generation solar panel recycling technology.",
+  description: language === "cs"
+    ? "Průmyslová recyklace solárních panelů bez spalování."
+    : "Industrial solar panel recycling without incineration.",
   sameAs: [],
   address: {
     "@type": "PostalAddress",
@@ -53,7 +55,7 @@ export const ORGANIZATION_DATA = {
     contactType: "customer service",
   },
   vatID: "CZ23695781",
-};
+});
 
 export const WEBSITE_DATA = {
   "@context": "https://schema.org",

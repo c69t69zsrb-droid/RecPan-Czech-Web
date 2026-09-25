@@ -54,7 +54,8 @@ export default function FacilityMap() {
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    // CARTO basemap tiles are proxied through a backend function so the API key stays in Base44 Secrets.
+    L.tileLayer("/functions/cartoTiles?z={z}&x={x}&y={y}&r={r}", {
       maxZoom: 19,
     }).addTo(map);
 

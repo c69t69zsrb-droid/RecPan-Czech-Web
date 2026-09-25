@@ -151,7 +151,7 @@ export default function Navigation({ onNavigate }) {
               <div className="flex flex-col gap-4">
                 <LanguageSwitcher />
                 <div className="font-heading text-[10px] text-obsidian/30 uppercase tracking-[0.2em]">
-                  {t("nav.copyright")}
+                  © {new Date().getFullYear()} {t("nav.copyright")}
                 </div>
               </div>
             </motion.div>

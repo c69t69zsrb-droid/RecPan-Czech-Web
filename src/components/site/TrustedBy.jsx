@@ -2,6 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 
+const PARTNERS = [
+  {
+    name: "resolar",
+    logo: "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/08831b724_REsolarLOGObarvy.png",
+  },
+];
+
 export default function TrustedBy() {
   const { t } = useLanguage();
 
@@ -22,7 +29,22 @@ export default function TrustedBy() {
             {t("trusted.desc")}
           </p>
         </motion.div>
-        {/* Partner logos pending — no hidden content for SEO */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+
+          {PARTNERS.map((partner) => (
+            <img
+              key={partner.name}
+              src={partner.logo}
+              alt={partner.name}
+              loading="lazy"
+              className="h-12 md:h-14 w-auto object-contain" />
+          ))}
+        </motion.div>
       </div>
     </section>);
 }

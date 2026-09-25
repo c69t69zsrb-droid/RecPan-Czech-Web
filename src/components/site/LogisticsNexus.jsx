@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, AlertCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { buildPath } from "@/lib/i18n/routes";
 
-const initialFormData = { name: "", company: "", email: "", phone: "", volume: "", country: "", notes: "" };
+const initialFormData = { name: "", company: "", email: "", phone: "", volume: "", quantity: "", location: "", country: "", panelTypeField: "", timeline: "", notes: "" };
 
-export default function LogisticsNexus() {
-  const { t } = useLanguage();
+export default function LogisticsNexus({ enquiryIntent }) {
+  const { t, language } = useLanguage();
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [orgType, setOrgType] = useState("");
   const [panelType, setPanelType] = useState("");
+  const [enquiryType, setEnquiryType] = useState("general");
+  const [consent, setConsent] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [status, setStatus] = useState("idle");
+
+  useEffect(() => {
+    if (enquiryIntent === "takeback") setEnquiryType("takeback");
+  }, [enquiryIntent]);
 
   const orgTypes = t("form.orgTypes");
   const panelTypes = t("form.panelTypes");
@@ -35,12 +44,17 @@ export default function LogisticsNexus() {
           body: JSON.stringify({
             orgType,
             panelType,
+            enquiryType: enquiryType === "takeback" ? t("form.enquiryTakeback") : t("form.enquiryGeneral"),
             name: formData.name,
             company: formData.company,
             email: formData.email,
             phone: formData.phone,
             volume: formData.volume,
+            quantity: formData.quantity,
+            location: formData.location,
             country: formData.country,
+            panelTypeField: formData.panelTypeField,
+            timeline: formData.timeline,
             notes: formData.notes,
           }),
         }
@@ -72,6 +86,8 @@ export default function LogisticsNexus() {
       setFormData(initialFormData);
       setOrgType("");
       setPanelType("");
+      setEnquiryType("general");
+      setConsent(false);
       setStep(1);
       setStatus("success");
     } catch (e) {
@@ -108,7 +124,10 @@ export default function LogisticsNexus() {
     { key: "email", label: t("form.email"), placeholder: t("form.emailPlaceholder"), type: "email" },
     { key: "phone", label: t("form.phone"), placeholder: t("form.phonePlaceholder"), type: "tel" },
     { key: "volume", label: t("form.volume"), placeholder: t("form.volumePlaceholder"), type: "text" },
+    { key: "quantity", label: t("form.quantity"), placeholder: t("form.quantityPlaceholder"), type: "text" },
+    { key: "location", label: t("form.location"), placeholder: t("form.locationPlaceholder"), type: "text" },
     { key: "country", label: t("form.country"), placeholder: t("form.countryPlaceholder"), type: "text" },
+    { key: "timeline", label: t("form.timeline"), placeholder: t("form.timelinePlaceholder"), type: "text" },
   ];
 
   return (
@@ -149,6 +168,26 @@ export default function LogisticsNexus() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
           >
+            <p className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 mb-3">
+              {t("form.enquiryType")}
+            </p>
+            <div className="flex flex-wrap gap-3 mb-10">
+              {[
+                { key: "general", label: t("form.enquiryGeneral") },
+                { key: "takeback", label: t("form.enquiryTakeback") }].
+              map((opt) =>
+              <button
+                key={opt.key}
+                onClick={() => setEnquiryType(opt.key)}
+                className={`font-heading text-xs uppercase tracking-[0.15em] px-5 py-2.5 rounded-full transition-all duration-300 ${
+                enquiryType === opt.key ? "bg-brand-green text-white" : "bg-obsidian/5 text-obsidian/50 hover:text-obsidian hover:bg-obsidian/10"}`
+                }>
+                
+                  {opt.label}
+                </button>
+              )}
+            </div>
+
             <p className="font-heading text-xs uppercase tracking-[0.15em] text-obsidian/40 mb-6">
               {t("form.iAm")}
             </p>
@@ -228,6 +267,22 @@ export default function LogisticsNexus() {
 
               <div>
                 <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
+                  {t("form.panelTypeField")}
+                </label>
+                <select
+                  value={formData.panelTypeField}
+                  onChange={(e) => setFormData({ ...formData, panelTypeField: e.target.value })}
+                  className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian transition-colors">
+                  
+                  <option value="">—</option>
+                  {t("form.panelTypeOptions").map((opt) =>
+                  <option key={opt} value={opt}>{opt}</option>
+                  )}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
                   {t("form.notes")}
                 </label>
                 <textarea
@@ -251,7 +306,7 @@ export default function LogisticsNexus() {
             <div className="flex items-center gap-6 mt-10">
               <button
                 onClick={handleSubmit}
-                disabled={!formData.name || !formData.email || !isValidEmail(formData.email) || status === "sending"}
+                disabled={!formData.name || !formData.email || !isValidEmail(formData.email) || !consent || status === "sending"}
                 className="group flex items-center gap-3 bg-brand-green text-white px-8 py-4 font-heading text-xs font-medium uppercase tracking-[0.15em] hover:bg-obsidian transition-colors disabled:opacity-30 disabled:cursor-not-allowed rounded-lg"
               >
                 {status === "sending" ? (
@@ -270,6 +325,29 @@ export default function LogisticsNexus() {
                 {t("form.back")}
               </button>
             </div>
+
+            <p className="font-heading text-sm text-obsidian/50 font-light mt-8">
+              {t("form.responseNote")}
+            </p>
+
+            <label className="flex items-start gap-3 mt-4 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-1 h-4 w-4 shrink-0 accent-brand-green cursor-pointer" />
+              
+              <span className="font-heading text-xs text-obsidian/50 leading-relaxed">
+                {t("form.consent")}{" "}
+                <a
+                  href={buildPath("privacy", language)}
+                  onClick={(e) => {e.preventDefault();navigate(buildPath("privacy", language));}}
+                  className="text-brand-green underline underline-offset-2 hover:text-obsidian transition-colors">
+                  
+                  {t("form.consentLink")}
+                </a>.
+              </span>
+            </label>
           </motion.div>
         )}
       </div>

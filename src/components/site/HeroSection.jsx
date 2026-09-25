@@ -1,12 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useTonnesCounter } from "@/hooks/useTonnesCounter";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const HERO_IMAGE = "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/2c1fd4474_generated_image.png";
 
 export default function HeroSection({ onNavigate }) {
   const { t, language } = useLanguage();
+  const displayValue = useTonnesCounter();
+  const locale = language === "cs" ? "cs-CZ" : "en-US";
 
   return (
     <section id="hero" className="snap-section relative min-h-screen flex flex-col overflow-hidden">
@@ -47,16 +50,35 @@ export default function HeroSection({ onNavigate }) {
             {t("hero.description")}
           </motion.p>
 
-          <motion.button
+          {/* Live counter */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-8">
+            
+            <p className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 mb-1">
+              {t("hero.counterLabel")}
+            </p>
+            <p className="font-heading text-4xl font-bold text-brand-green tracking-tight">
+              {displayValue.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} t
+            </p>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            onClick={() => onNavigate && onNavigate("#contact")}
-            className="group flex items-center gap-3 font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/60 hover:text-brand-green transition-colors mt-10">
-            
-            {t("hero.cta")}
-            <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" />
-          </motion.button>
+            className="flex flex-col items-start sm:flex-row sm:items-center gap-4 sm:gap-5 mt-10">
+
+            <button
+              onClick={() => onNavigate && onNavigate("#contact")}
+              className="group inline-flex items-center justify-center gap-3 whitespace-nowrap h-[52px] w-full sm:w-auto px-7 rounded-[2px] bg-brand-green text-white font-heading text-[13px] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 hover:bg-brand-green-dark">
+
+              {t("hero.cta")}
+              <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
+          </motion.div>
         </div>
 
         {/* Right image */}
