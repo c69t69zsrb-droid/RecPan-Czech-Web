@@ -55,13 +55,43 @@ export default function FacilityMap() {
     L.control.zoom({ position: "bottomright" }).addTo(map);
     L.control.attribution({ position: "bottomleft", prefix: false }).addTo(map);
 
-    // Standard public OpenStreetMap tile layer over HTTPS — no host-specific services or API keys,
-    // so it renders identically on the Base44 preview and on external deployments.
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      subdomains: "abc",
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    // Basemap: the original light CARTO style when VITE_CARTO_KEY is available at build time
+    // (set it in the hosting environment), otherwise a very light, minimal grey fallback.
+    // Tiles are requested straight from the public tile services over HTTPS, so this works both
+    // in the Base44 preview and on external deployments without any server-side proxy.
+    const cartoKey = import.meta.env.VITE_CARTO_KEY;
+
+    const addLightFallback = () => {
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16,
+        attribution: 'Tiles &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a>',
+      }).addTo(map);
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16,
+      }).addTo(map);
+    };
+
+    if (cartoKey) {
+      const cartoLayer = L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=${cartoKey}`, {
+        subdomains: "abcd",
+        maxZoom: 16,
+        attribution: '&copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
+      });
+
+      // If CARTO refuses the requests (e.g. the key is not allowed for this domain),
+      // swap in the light grey basemap instead of leaving an empty map.
+      let cartoFailed = false;
+      cartoLayer.on("tileerror", () => {
+        if (cartoFailed) return;
+        cartoFailed = true;
+        map.removeLayer(cartoLayer);
+        addLightFallback();
+      });
+
+      cartoLayer.addTo(map);
+    } else {
+      addLightFallback();
+    }
 
     facilities.forEach((facility) => {
       const isHQ = facility.isHQ;
