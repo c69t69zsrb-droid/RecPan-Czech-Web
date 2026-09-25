@@ -10,6 +10,7 @@ import { buildPath, translateArticleSlug } from "@/lib/i18n/routes";
 import SEO, { articleData, breadcrumbData } from "@/components/SEO";
 
 const articleDates = {
+  "recpan-opens-pribram-recycling-plant": "2026-07-23",
   "recpan-expanding-team-pribram": "2026-07-18",
   "recpan-at-intersolar-europe": "2026-06-17",
   "new-recycling-facility-under-development": "2025-11-20",
@@ -178,6 +179,17 @@ export default function Article() {
               );
             })}
           </div>
+
+          {/* Gallery */}
+          {article.gallery &&
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mt-12">
+            {article.gallery.map((src) =>
+            <figure key={src} className="relative h-[28vh] md:h-[38vh] overflow-hidden rounded-lg">
+                <img src={src} alt={tr.title} width={1200} height={675} loading="lazy" className="w-full h-full object-cover" />
+              </figure>
+            )}
+          </div>
+          }
 
           {/* Signature */}
           {tr.quote &&

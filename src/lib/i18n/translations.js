@@ -10,17 +10,17 @@ export const translations = {
   "nav.contact": { cs: "Kontakt", en: "Contact" },
   "nav.menu": { cs: "Menu", en: "Menu" },
   "nav.career": { cs: "Kariéra", en: "Career" },
-  "nav.copyright": { cs: "© 2025 RecPan Recyklace solárních panelů", en: "© 2025 RecPan Solar Panel Recycling" },
+  "nav.copyright": { cs: "RecPan Recyklace solárních panelů", en: "RecPan Solar Panel Recycling" },
   "nav.close": { cs: "Zavřít", en: "Close" },
 
   // ── Hero ──
   "hero.titleLine1": { cs: "VÍCE", en: "MORE" },
   "hero.titleLine2": { cs: "NEŽ", en: "THAN" },
   "hero.titleLine3": { cs: "RECYKLACE", en: "RECYCLING" },
-  "hero.subtitle": { cs: "Nejmodernější recyklace solárních panelů", en: "Next-generation solar panel recycling" },
+  "hero.subtitle": { cs: "Nejmodernější recyklace solárních panelů", en: "State-of-the-art solar panel recycling" },
   "hero.description": { cs: "Měníme fotovoltaické panely na cenné suroviny a nové produkty pro další generaci průmyslu.", en: "We transform end-of-life photovoltaic panels into valuable raw materials and new products for the next generation of industry." },
   "hero.counterLabel": { cs: "Recyklováno tun", en: "Tonnes recycled" },
-  "hero.cta": { cs: "Spolupracovat s RecPan", en: "Partner with RecPan" },
+  "hero.cta": { cs: "Poptat odběr panelů", en: "Get a panel take-back quote" },
   "hero.altPanel": { cs: "Celý solární panel", en: "Complete solar panel" },
 
   // ── About ──
@@ -28,8 +28,8 @@ export const translations = {
   "about.title": { cs: "Kruhový přístup k recyklaci solárních panelů", en: "A circular approach to solar panel recycling" },
   "about.credCapacity": { cs: "Roční kapacita", en: "Annual capacity" },
   "about.credRecovery": { cs: "Získávání materiálů", en: "Material recovery" },
-  "about.credHq": { cs: "Sídlo v", en: "Headquartered in" },
-  "about.credHqValue": { cs: "Česku", en: "Czechia" },
+  "about.credHq": { cs: "První závod", en: "First plant" },
+  "about.credHqValue": { cs: "Příbram", en: "Příbram" },
   "about.credExpansion": { cs: "Expanze", en: "Expansion" },
   "about.credExpansionValue": { cs: "3 země", en: "3 countries" },
   "about.pillar1Title": { cs: "Kdo jsme", en: "Who we are" },
@@ -40,10 +40,10 @@ export const translations = {
   "about.pillar3Desc": { cs: "Proprietární recyklační technologie, která maximalizuje výtěžnost materiálů z každé frakce a ukončení cyklu do výrobků přímo u nás pod střechou.", en: "Proprietary recycling technology that maximizes material yield from every fraction, with the cycle completed in-house through our own products." },
 
   // ── Why RecPan ──
-  "why.label": { cs: "III — Proč RecPan", en: "III — Why RecPan" },
+  "why.label": { cs: "II — Proč RecPan", en: "II — Why RecPan" },
   "why.title": { cs: "Proč RecPan", en: "Why RecPan" },
   "why.f1Title": { cs: "Nejmodernější technologie", en: "Advanced technology" },
-  "why.f1Desc": { cs: "Kombinace nejmodernější mechanické technologie v České republice a patentovaných procesů zajišťuje mimořádně vysokou čistotu získaných materiálů.", en: "A combination of advanced mechanical technology in the Czech Republic and patented processes ensures exceptionally high purity of recovered materials." },
+  "why.f1Desc": { cs: "Kombinace pokročilé mechanické technologie a vlastních (proprietárních) procesů zajišťuje mimořádně vysokou čistotu získaných materiálů.", en: "A combination of advanced mechanical technology and proprietary processes ensures exceptionally high purity of recovered materials." },
   "why.f2Title": { cs: "Vysoká míra získání materiálů", en: "High material recovery rate" },
   "why.f2Desc": { cs: "Získáváme více než 97 % váhy z každého solárního panelu ve vysoké čistotě.", en: "We recover more than 97% of the weight from every solar panel in high purity." },
   "why.f3Title": { cs: "Evropská expanze", en: "European expansion" },
@@ -52,7 +52,7 @@ export const translations = {
   "why.f4Desc": { cs: "Spolupracujeme s průmyslovými partnery a partnery v oblasti odpadového hospodářství.", en: "We collaborate with industrial partners and waste management partners." },
 
   // ── Trusted By ──
-  "trusted.label": { cs: "II — Důvěřují nám", en: "II — Trusted by" },
+  "trusted.label": { cs: "III — Důvěřují nám", en: "III — Trusted by" },
   "trusted.desc": { cs: "Budujeme budoucnost recyklace fotovoltaických panelů společně s lídry průmyslu, výzkumnými institucemi a strategickými partnery.", en: "We are building the future of photovoltaic panel recycling together with industry leaders, research institutions, and strategic partners." },
   "trusted.partner4": { cs: "Průmysloví partneři", en: "Industrial partners" },
   "trusted.partner5": { cs: "Technologičtí partneři", en: "Technology partners" },
@@ -89,9 +89,9 @@ export const translations = {
   "materials.aluminumName": { cs: "Hliník", en: "Aluminum" },
   "materials.aluminumApp": { cs: "Recyklace kovů", en: "Metal recycling" },
   "materials.aluminumAlt": { cs: "Recyklované hliníkové rámy ze solárních panelů naskládané", en: "Recycled aluminum frames from solar panels stacked" },
-  "materials.metalsName": { cs: "Drahé kovy", en: "Precious metals" },
+  "materials.metalsName": { cs: "Měď a stříbro", en: "Copper & Silver" },
   "materials.metalsApp": { cs: "Elektrotechnický průmysl", en: "Electrical industry" },
-  "materials.metalsAlt": { cs: "Získané měďné kabely a stříbrné sběrnice ze solárních panelů", en: "Recovered copper cables and silver busbars from solar panels" },
+  "materials.metalsAlt": { cs: "Získané měděné kabely a stříbrné sběrnice ze solárních panelů", en: "Recovered copper cables and silver busbars from solar panels" },
 
   // ── Trust Section ──
   "trust.label": { cs: "VII — POSTAVENO PRO PRŮMYSL", en: "VII — BUILT FOR INDUSTRY" },
@@ -119,7 +119,7 @@ export const translations = {
   "expansion.australia": { cs: "Austrálie", en: "Australia" },
 
   // ── Facility ──
-  "facility.label": { cs: "IX — NAŠE ZAŘÍZENÍ", en: "IX — OUR FACILITY" },
+  "facility.label": { cs: "VIII — NAŠE ZAŘÍZENÍ", en: "VIII — OUR FACILITY" },
   "facility.title": { cs: "Naše zařízení", en: "Our facility" },
   "facility.plantName": { cs: "Příbram — Recyklační závod", en: "Příbram — Recycling plant" },
   "facility.country": { cs: "Česká republika", en: "Czech Republic" },
@@ -177,6 +177,21 @@ export const translations = {
     cs: ["Monokrystalické", "Polykrystalické", "Tenkovrstvé", "Smíšené / Neznámé"],
     en: ["Monocrystalline", "Polycrystalline", "Thin-film", "Mixed / Unknown"],
   },
+  "form.enquiryType": { cs: "Typ poptávky", en: "Enquiry type" },
+  "form.enquiryGeneral": { cs: "Obecná poptávka", en: "General enquiry" },
+  "form.enquiryTakeback": { cs: "Nabídka na odběr panelů", en: "Panel take-back quote" },
+  "form.quantity": { cs: "Přibližné množství panelů (t nebo ks)", en: "Approximate panel quantity (t or pcs)" },
+  "form.quantityPlaceholder": { cs: "např. 25 t / 500 ks", en: "e.g. 25 t / 500 pcs" },
+  "form.location": { cs: "Lokalita (město / region / země)", en: "Location (city / region / country)" },
+  "form.locationPlaceholder": { cs: "např. Brno, Jihomoravský kraj", en: "e.g. Brno, South Moravia" },
+  "form.panelTypeField": { cs: "Typ panelů", en: "Panel type" },
+  "form.panelTypeOptions": { cs: ["Krystalické", "Tenkovrstvé", "Nevím"], en: ["Crystalline", "Thin-film", "Not sure"] },
+  "form.timeline": { cs: "Předpokládaný termín", en: "Expected timeline" },
+  "form.timelinePlaceholder": { cs: "např. Q1 2027", en: "e.g. Q1 2027" },
+  "form.responseNote": { cs: "Ozveme se do 2 pracovních dnů.", en: "We will get back to you within 2 business days." },
+  "form.consent": { cs: "Souhlasím se zpracováním osobních údajů podle", en: "I agree to the processing of personal data according to the" },
+  "form.consentLink": { cs: "zásad ochrany osobních údajů", en: "Privacy Policy" },
+  "form.consentRequired": { cs: "Pro odeslání je potřeba souhlas se zpracováním osobních údajů.", en: "Please agree to the processing of personal data to submit." },
 
   // ── Footer (DataFooter) ──
   "footer.impactLabel": { cs: "Náš dosavadní dopad", en: "Our impact so far" },
@@ -186,14 +201,57 @@ export const translations = {
   "footer.silicon": { cs: "Získané křemík", en: "Recovered silicon" },
   "footer.copper": { cs: "Získaná měď", en: "Recovered copper" },
   "footer.co2": { cs: "Ušetřené CO₂", en: "CO₂ saved" },
+  "footer.address": { cs: "Petrská 1166/33, 110 00 Praha 1, Česká republika", en: "Petrská 1166/33, 110 00 Prague 1, Czech Republic" },
   "footer.navLabel": { cs: "Navigace", en: "Navigation" },
   "footer.legalLabel": { cs: "Právní", en: "Legal" },
   "footer.privacy": { cs: "Zásady ochrany osobních údajů", en: "Privacy Policy" },
-  "footer.terms": { cs: "Podmínky služby", en: "Terms of Service" },
-  "footer.sustainability": { cs: "Zpráva o udržitelnosti", en: "Sustainability Report" },
   "footer.cta": { cs: "Spolupracovat s RecPan", en: "Partner with RecPan" },
-  "footer.copyright": { cs: "© 2025 RecPan Recyklace solárních panelů. Všechny materiály získány.", en: "© 2025 RecPan Solar Panel Recycling. All materials recovered." },
+  "footer.copyright": { cs: "RecPan Recyklace solárních panelů. Všechna práva vyhrazena.", en: "RecPan Solar Panel Recycling. All rights reserved." },
   "footer.tagline": { cs: "Technologie & udržitelnost pro lepší budoucnost", en: "Technology & sustainability for a better future" },
+
+  // ── Panel handover ──
+  "handover.label": { cs: "IX — JAK NÁM PŘEDAT PANELY", en: "IX — HOW TO HAND US YOUR PANELS" },
+  "handover.title": { cs: "Jak nám předat panely", en: "How to hand us your panels" },
+  "handover.step1Title": { cs: "Poptávka", en: "Enquiry" },
+  "handover.step1Desc": { cs: "Pošlete nám množství a lokalitu.", en: "Send us the quantity and location." },
+  "handover.step2Title": { cs: "Nacenění", en: "Quote" },
+  "handover.step2Desc": { cs: "Připravíme nabídku včetně dopravy.", en: "We prepare an offer including transport." },
+  "handover.step3Title": { cs: "Svoz nebo dovoz", en: "Pickup or delivery" },
+  "handover.step3Desc": { cs: "Panely převezmeme v našem závodě v Příbrami nebo zajistíme svoz.", en: "We take over the panels at our Příbram plant or arrange collection." },
+  "handover.step4Title": { cs: "Doklady", en: "Documentation" },
+  "handover.step4Desc": { cs: "Dostanete potvrzení o převzetí a recyklaci pro vaši evidenci.", en: "You receive confirmation of take-over and recycling for your records." },
+  "handover.cta": { cs: "Poptat odběr panelů", en: "Request panel take-back" },
+
+  // ── Privacy policy ──
+  "privacy.label": { cs: "Právní informace", en: "Legal" },
+  "privacy.title": { cs: "Zásady ochrany osobních údajů", en: "Privacy Policy" },
+  "privacy.back": { cs: "Zpět na web", en: "Back to website" },
+  "privacy.content": {
+    cs: [
+      "Tyto zásady vysvětlují, jak společnost RecPan s.r.o. zpracovává osobní údaje, které nám poskytnete prostřednictvím kontaktního formuláře na našem webu.",
+      "Správce osobních údajů: RecPan s.r.o., se sídlem Petrská 1166/33, 110 00 Praha 1, IČO 23695781, e-mail office@rec-pan.cz.",
+      "Jaké údaje zpracováváme: jméno a příjmení, název společnosti, e-mail, telefon, zemi a lokalitu, údaje o poptávaných panelech (přibližné množství, typ a předpokládaný termín) a obsah vaší zprávy.",
+      "Účel zpracování: údaje používáme výhradně k vyřízení vaší poptávky, k přípravě nabídky a k následné komunikaci s vámi.",
+      "Právní základ: zpracování je nezbytné pro provedení opatření před uzavřením smlouvy a dále vychází z našeho oprávněného zájmu odpovědět na vaši poptávku.",
+      "Doba uchování: údaje uchováváme po dobu nezbytně nutnou k vyřízení poptávky a navazující komunikace, nejdéle však 24 měsíců od posledního kontaktu, nestanoví-li zákon jinak.",
+      "Předání dalším stranám: údaje nepředáváme třetím stranám, s výjimkou poskytovatelů technických služeb (například e-mailové infrastruktury), kteří je zpracovávají výhradně pro nás a podle našich pokynů.",
+      "Vaše práva: máte právo na přístup ke svým údajům, jejich opravu, výmaz, omezení zpracování, přenositelnost a právo vznést námitku proti zpracování. Máte také právo podat stížnost u Úřadu pro ochranu osobních údajů.",
+      "Kontakt: v otázkách ochrany osobních údajů se na nás můžete obrátit na e-mailu office@rec-pan.cz.",
+    ],
+    en: [
+      "These principles explain how RecPan s.r.o. processes the personal data you provide through the contact form on our website.",
+      "Data controller: RecPan s.r.o., registered at Petrská 1166/33, 110 00 Prague 1, Czech Republic, Company ID 23695781, e-mail office@rec-pan.cz.",
+      "What data we process: first and last name, company name, e-mail, phone, country and location, details of the panels you are enquiring about (approximate quantity, type and expected timeline) and the content of your message.",
+      "Purpose: we use the data solely to handle your enquiry, prepare an offer and follow up with you.",
+      "Legal basis: the processing is necessary to take steps before entering into a contract and is further based on our legitimate interest in responding to your enquiry.",
+      "Retention: we keep the data for as long as necessary to handle the enquiry and related communication, but no longer than 24 months from the last contact, unless the law requires otherwise.",
+      "Sharing: we do not pass the data to third parties, except for providers of technical services (such as e-mail infrastructure), who process it exclusively for us and under our instructions.",
+      "Your rights: you have the right to access your data, to have it corrected, erased, restricted, to data portability and to object to processing. You also have the right to lodge a complaint with the Czech Office for Personal Data Protection.",
+      "Contact: for any questions about personal data protection, please e-mail us at office@rec-pan.cz.",
+    ],
+  },
+  "seo.privacy.title": { cs: "Zásady ochrany osobních údajů | RecPan", en: "Privacy Policy | RecPan" },
+  "seo.privacy.desc": { cs: "Zásady zpracování osobních údajů z kontaktního formuláře společnosti RecPan s.r.o.", en: "How RecPan s.r.o. processes personal data submitted through its contact form." },
 
   // ── Career ──
   "career.label": { cs: "Kariéra", en: "Career" },

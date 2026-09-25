@@ -3,6 +3,7 @@ const articleSlugCs = {
   "recpan-expanding-team-pribram": "recpan-rozsiruje-tym-pribram",
   "recpan-at-intersolar-europe": "recpan-na-intersolar-europe",
   "new-recycling-facility-under-development": "vystavba-prvniho-recyklacniho-centra",
+  "recpan-opens-pribram-recycling-plant": "otevreni-zavodu-pribram",
 };
 
 // Reverse mapping (CS slug → EN slug)
@@ -49,6 +50,9 @@ export function parsePath(pathname) {
       if (segments.length === 1) return { route: "career", lang, params: {} };
       if (segments.length === 2) return { route: "position", lang, params: { id: segments[1] } };
     }
+    if (segments[0] === "privacy-policy") {
+      return { route: "privacy", lang, params: {} };
+    }
   } else {
     if (segments[0] === "aktuality") {
       if (segments.length === 1) return { route: "news", lang, params: {} };
@@ -57,6 +61,9 @@ export function parsePath(pathname) {
     if (segments[0] === "kariera") {
       if (segments.length === 1) return { route: "career", lang, params: {} };
       if (segments.length === 2) return { route: "position", lang, params: { id: segments[1] } };
+    }
+    if (segments[0] === "ochrana-osobnich-udaju") {
+      return { route: "privacy", lang, params: {} };
     }
   }
 
@@ -81,6 +88,9 @@ export function buildPath(route, lang, params = {}) {
   if (route === "position") {
     const id = params.id || "";
     return lang === "cs" ? `/cs/kariera/${id}` : `/career/${id}`;
+  }
+  if (route === "privacy") {
+    return lang === "cs" ? "/cs/ochrana-osobnich-udaju" : "/privacy-policy";
   }
   return lang === "cs" ? "/cs" : "/";
 }

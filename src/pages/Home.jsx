@@ -1,27 +1,30 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import MeridianLines from "@/components/site/MeridianLines";
 import ScrollProgress from "@/components/site/ScrollProgress";
 import Navigation from "@/components/site/Navigation";
 import HeroSection from "@/components/site/HeroSection";
-import TrustedBy from "@/components/site/TrustedBy";
 import MaterialLedger from "@/components/site/MaterialLedger";
 import CircularityMatrix from "@/components/site/CircularityMatrix";
 import AboutSection from "@/components/site/AboutSection";
 import WhyRecPan from "@/components/site/WhyRecPan";
+import TrustedBy from "@/components/site/TrustedBy";
 import TrustSection from "@/components/site/TrustSection";
 import LatestNews from "@/components/site/LatestNews";
 import LogisticsNexus from "@/components/site/LogisticsNexus";
+import PanelHandover from "@/components/site/PanelHandover";
 import DataFooter from "@/components/site/DataFooter";
 import FacilitySection from "@/components/site/FacilitySection";
-import SEO, { ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA } from "@/components/SEO";
+import SEO, { organizationData, WEBSITE_DATA, LOCAL_BUSINESS_DATA } from "@/components/SEO";
 import { useLanguage } from "@/hooks/useLanguage";
 import { buildPath } from "@/lib/i18n/routes";
 
 export default function Home() {
   const containerRef = useRef(null);
   const { t, language } = useLanguage();
+  const [enquiryIntent, setEnquiryIntent] = useState("");
 
-  const scrollTo = useCallback((href) => {
+  const scrollTo = useCallback((href, intent) => {
+    if (intent) setEnquiryIntent(intent);
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el && containerRef.current) {
@@ -43,7 +46,7 @@ export default function Home() {
         path={buildPath("home", language)}
         language={language}
         locale={language === "cs" ? "cs_CZ" : "en_US"}
-        structuredData={[ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA]}
+        structuredData={[organizationData(language), WEBSITE_DATA, LOCAL_BUSINESS_DATA]}
       />
       <MeridianLines />
       <ScrollProgress containerRef={containerRef} />
@@ -58,7 +61,8 @@ export default function Home() {
       <LatestNews />
       <TrustSection />
       <FacilitySection />
-      <LogisticsNexus />
+      <PanelHandover onNavigate={scrollTo} />
+      <LogisticsNexus enquiryIntent={enquiryIntent} />
       <DataFooter onNavigate={scrollTo} />
     </div>
   );
