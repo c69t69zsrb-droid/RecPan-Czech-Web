@@ -53,10 +53,14 @@ export default function FacilityMap() {
     });
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
+    L.control.attribution({ position: "bottomleft", prefix: false }).addTo(map);
 
-    // CARTO basemap tiles are proxied through a backend function so the API key stays in Base44 Secrets.
-    L.tileLayer("/functions/cartoTiles?z={z}&x={x}&y={y}&r={r}", {
+    // Standard public OpenStreetMap tile layer over HTTPS — no host-specific services or API keys,
+    // so it renders identically on the Base44 preview and on external deployments.
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      subdomains: "abc",
       maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
     }).addTo(map);
 
     facilities.forEach((facility) => {
