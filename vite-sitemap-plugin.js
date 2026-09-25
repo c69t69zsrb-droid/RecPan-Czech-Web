@@ -8,6 +8,7 @@ const articleSlugCs = {
   'recpan-at-intersolar-europe': 'recpan-na-intersolar-europe',
   'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
   'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
+  'recpan-opens-pribram-recycling-plant': 'otevreni-zavodu-pribram',
 };
 
 const articleDates = {
@@ -15,6 +16,7 @@ const articleDates = {
   'recpan-at-intersolar-europe': '2026-06-17',
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',
+  'recpan-opens-pribram-recycling-plant': '2026-09-25',
 };
 
 function buildEnPath(route, params = {}) {
@@ -24,6 +26,7 @@ function buildEnPath(route, params = {}) {
     case 'article': return `/news/${params.slug}`;
     case 'career': return '/career';
     case 'position': return `/career/${params.id}`;
+    case 'privacy': return '/privacy-policy';
     default: return '/';
   }
 }
@@ -35,6 +38,7 @@ function buildCsPath(route, params = {}) {
     case 'article': return `/cs/aktuality/${articleSlugCs[params.slug] || params.slug}`;
     case 'career': return '/cs/kariera';
     case 'position': return `/cs/kariera/${params.id}`;
+    case 'privacy': return '/cs/ochrana-osobnich-udaju';
     default: return '/cs';
   }
 }
@@ -53,6 +57,7 @@ function generateSitemapXml() {
       priority: '0.7',
     })),
     { route: 'career', lastmod: today, changefreq: 'weekly', priority: '0.8' },
+    { route: 'privacy', lastmod: today, changefreq: 'yearly', priority: '0.3' },
     ...careerPositions.map((p) => ({
       route: 'position',
       id: p.id,

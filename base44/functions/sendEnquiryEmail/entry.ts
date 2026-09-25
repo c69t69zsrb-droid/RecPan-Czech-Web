@@ -8,12 +8,17 @@ Deno.serve(async (req) => {
 
     const orgType = data.orgType || "";
     const panelType = data.panelType || "";
+    const enquiryType = data.enquiryType || "";
     const name = (data.name || "").trim();
     const company = (data.company || "").trim();
     const email = (data.email || "").trim();
     const phone = (data.phone || "").trim();
     const volume = (data.volume || "").trim();
     const country = (data.country || "").trim();
+    const quantity = (data.quantity || "").trim();
+    const location = (data.location || "").trim();
+    const panelTypeField = (data.panelTypeField || "").trim();
+    const timeline = (data.timeline || "").trim();
     const notes = (data.notes || "").trim();
 
     // Validate required fields
@@ -37,6 +42,7 @@ Deno.serve(async (req) => {
     const body = [
       "New website enquiry",
       "",
+      `Enquiry type: ${enquiryType || "—"}`,
       `Contact type: ${orgType || "—"}`,
       `Solar panel type: ${panelType || "—"}`,
       `Contact name: ${name}`,
@@ -44,7 +50,11 @@ Deno.serve(async (req) => {
       `Email: ${email}`,
       `Phone: ${phone || "—"}`,
       `Estimated volume: ${volume || "—"}`,
+      `Approximate quantity: ${quantity || "—"}`,
+      `Location: ${location || "—"}`,
+      `Panel type: ${panelTypeField || "—"}`,
       `Country: ${country || "—"}`,
+      `Expected timeline: ${timeline || "—"}`,
       `Message: ${notes || "—"}`,
       "",
       `Submitted: ${submittedAt}`,

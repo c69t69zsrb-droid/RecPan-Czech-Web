@@ -5,7 +5,7 @@ import { careerPositions } from './src/data/careerPositions.js';
 import { translations } from './src/lib/i18n/translations.js';
 
 const SITE_URL = 'https://rec-pan.eu';
-const LOGO_URL = 'https://media.base44.com/images/public/6a42ca6def2b3dfe835b3720/161cbfc87_ChatGPTImageJul7202607_43_34PM.png';
+const LOGO_URL = 'https://media.base44.com/images/public/6a42ca6def2b3dfe835b3720/0643f48d8_RecPanbezpozadi.png';
 const DEFAULT_OG_IMAGE = 'https://media.base44.com/images/public/6a42ca6def2b3dfe835b3720/abdf0ee40_IMG_06852Large.jpg';
 
 const articleSlugCs = {
@@ -13,6 +13,7 @@ const articleSlugCs = {
   'recpan-at-intersolar-europe': 'recpan-na-intersolar-europe',
   'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
   'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
+  'recpan-opens-pribram-recycling-plant': 'otevreni-zavodu-pribram',
 };
 
 const articleDates = {
@@ -20,6 +21,7 @@ const articleDates = {
   'recpan-at-intersolar-europe': '2026-06-17',
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',
+  'recpan-opens-pribram-recycling-plant': '2026-09-25',
 };
 
 function t(key, lang) {
@@ -37,6 +39,7 @@ function buildPath(route, lang, params = {}) {
   }
   if (route === 'career') return lang === 'cs' ? '/cs/kariera' : '/career';
   if (route === 'position') return lang === 'cs' ? `/cs/kariera/${params.id}` : `/career/${params.id}`;
+  if (route === 'privacy') return lang === 'cs' ? '/cs/ochrana-osobnich-udaju' : '/privacy-policy';
   return lang === 'cs' ? '/cs' : '/';
 }
 
@@ -47,13 +50,15 @@ function getAlternates(route, params = {}) {
   };
 }
 
-const ORGANIZATION_DATA = {
+const organizationData = (lang) => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'RecPan s.r.o.',
   url: SITE_URL,
   logo: LOGO_URL,
-  description: 'Next-generation solar panel recycling technology.',
+  description: lang === 'cs'
+    ? 'Průmyslová recyklace solárních panelů bez spalování.'
+    : 'Industrial solar panel recycling without incineration.',
   sameAs: [],
   address: {
     '@type': 'PostalAddress',
@@ -69,7 +74,7 @@ const ORGANIZATION_DATA = {
     contactType: 'customer service',
   },
   vatID: 'CZ23695781',
-};
+});
 
 const WEBSITE_DATA = {
   '@context': 'https://schema.org',
@@ -143,6 +148,8 @@ function getRoutes() {
     { route: 'news', lang: 'cs', path: '/cs/aktuality', params: {} },
     { route: 'career', lang: 'en', path: '/career', params: {} },
     { route: 'career', lang: 'cs', path: '/cs/kariera', params: {} },
+    { route: 'privacy', lang: 'en', path: '/privacy-policy', params: {} },
+    { route: 'privacy', lang: 'cs', path: '/cs/ochrana-osobnich-udaju', params: {} },
   ];
 
   for (const article of newsArticles) {
@@ -191,7 +198,7 @@ function getMetadata(routeDef) {
       canonical, alternates, locale, lang,
       image: DEFAULT_OG_IMAGE,
       type: 'website',
-      structuredData: [ORGANIZATION_DATA, WEBSITE_DATA, LOCAL_BUSINESS_DATA],
+      structuredData: [organizationData(lang), WEBSITE_DATA, LOCAL_BUSINESS_DATA],
     };
   }
 
@@ -222,6 +229,22 @@ function getMetadata(routeDef) {
         breadcrumbData([
           { name: lang === 'cs' ? 'Domů' : 'Home', path: buildPath('home', lang) },
           { name: t('career.label', lang), path: buildPath('career', lang) },
+        ]),
+      ],
+    };
+  }
+
+  if (route === 'privacy') {
+    return {
+      title: t('seo.privacy.title', lang),
+      description: t('seo.privacy.desc', lang),
+      canonical, alternates, locale, lang,
+      image: DEFAULT_OG_IMAGE,
+      type: 'website',
+      structuredData: [
+        breadcrumbData([
+          { name: lang === 'cs' ? 'Domů' : 'Home', path: buildPath('home', lang) },
+          { name: t('privacy.title', lang), path: canonical },
         ]),
       ],
     };
