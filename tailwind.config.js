@@ -50,15 +50,6 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			brand: {
-  				green: '#4CAF50',
-  				dark: '#111820',
-  				light: '#E6E6E6'
-  			},
-  			cobalt: '#4CAF50',
-  			vitriol: '#4CAF50',
-  			obsidian: '#111820',
-  			titanium: '#E6E6E6',
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',
@@ -70,20 +61,22 @@ module.exports = {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
-  		fontFamily: {
-  			heading: ['Poppins', 'var(--font-heading)'],
-  			body: ['Poppins', 'var(--font-body)'],
-  			display: ['Poppins', 'var(--font-display)'],
-  			mono: ['var(--font-mono)']
-  		},
   		keyframes: {
   			'accordion-down': {
-  				from: { height: '0' },
-  				to: { height: 'var(--radix-accordion-content-height)' }
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
   			},
   			'accordion-up': {
-  				from: { height: 'var(--radix-accordion-content-height)' },
-  				to: { height: '0' }
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			}
   		},
   		animation: {
