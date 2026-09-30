@@ -2,7 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 
-const FACILITY_IMAGE = "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/c7f44eb4b_generated_image.png";
+// Aktuální fotografie robotického pracoviště (část IV – Proces)
+const FACILITY_IMAGE = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/b628cdc45_IMG_24563.jpg";
+
+// Záloha: původní AI generovaný obrázek – stačí jím nahradit hodnotu výše, pokud by se fotka nehodila
+// const FACILITY_IMAGE_AI = "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/c7f44eb4b_generated_image.png";
 
 export default function CircularityMatrix() {
   const { t } = useLanguage();

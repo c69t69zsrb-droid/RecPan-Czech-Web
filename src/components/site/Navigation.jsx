@@ -13,6 +13,8 @@ export default function Navigation({ onNavigate }) {
   const [hoveredTint, setHoveredTint] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+  // Na úvodní stránce leží přepínač jazyků a tlačítko MENU nad tmavou částí hero obrázku
+  const overDarkHero = parsePath(location.pathname).route === "home";
 
   useEffect(() => {
     if (open) {
@@ -78,12 +80,14 @@ export default function Navigation({ onNavigate }) {
           <Logo size="sm" />
         </a>
         <div className="flex items-center gap-6 pointer-events-auto">
-          <LanguageSwitcher />
+          <LanguageSwitcher overDarkHero={overDarkHero} />
           <button
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-navigation"
-            className="flex items-center gap-2 text-xs font-heading font-medium uppercase tracking-[0.15em] text-obsidian hover:text-brand-green transition-colors">
+            className={`flex items-center gap-2 text-xs font-heading font-medium uppercase tracking-[0.15em] text-obsidian hover:text-brand-green transition-colors ${
+              overDarkHero ? "lg:text-white" : ""
+            }`}>
             
             {t("nav.menu")} <Menu size={16} />
           </button>

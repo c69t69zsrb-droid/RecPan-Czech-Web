@@ -4,7 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { useTonnesCounter } from "@/hooks/useTonnesCounter";
 import { useLanguage } from "@/hooks/useLanguage";
 
-const HERO_IMAGE = "https://media.base44.com/images/public/6a42a05b8f8b3d58dce0168f/2c1fd4474_generated_image.png";
+// Aktuální obrázek hero sekce – prasklý solární panel s přechodem do světlé vlevo
+const HERO_IMAGE = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/f456b08c1_recpan-web-hero-praskly-panel-v3.jpg";
+
+// Záloha: předchozí obrázek hero sekce (prasklý panel s přechodem do světlé vlevo)
+// const HERO_IMAGE_PREVIOUS = "https://media.base44.com/images/public/6a42ca6def2b3fde835b3720/8dee94f47_recpan-web-hero-praskly-panel-prechod.jpg";
 
 export default function HeroSection({ onNavigate }) {
   const { t, language } = useLanguage();
