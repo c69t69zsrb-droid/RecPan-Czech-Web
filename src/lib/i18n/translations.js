@@ -8,6 +8,7 @@ export const translations = {
   "nav.process": { cs: "Proces", en: "Process" },
   "nav.news": { cs: "Aktuality", en: "News" },
   "nav.contact": { cs: "Kontakt", en: "Contact" },
+  "nav.media": { cs: "Napsali o nás", en: "In the media" },
   "nav.menu": { cs: "Menu", en: "Menu" },
   "nav.career": { cs: "Kariéra", en: "Career" },
   "nav.copyright": { cs: "RecPan Recyklace solárních panelů", en: "RecPan Solar Panel Recycling" },
@@ -20,6 +21,7 @@ export const translations = {
   "hero.subtitle": { cs: "Nejmodernější recyklace solárních panelů", en: "State-of-the-art solar panel recycling" },
   "hero.description": { cs: "Měníme fotovoltaické panely na cenné suroviny a nové produkty pro další generaci průmyslu.", en: "We transform end-of-life photovoltaic panels into valuable raw materials and new products for the next generation of industry." },
   "hero.counterLabel": { cs: "Recyklováno tun", en: "Tonnes recycled" },
+  "hero.counterNote": { cs: "Orientační hodnota", en: "Indicative value" },
   "hero.cta": { cs: "Poptat odběr panelů", en: "Get a panel take-back quote" },
   "hero.altPanel": { cs: "Celý solární panel", en: "Complete solar panel" },
 
@@ -138,11 +140,19 @@ export const translations = {
   "news.pageTitle": { cs: "Aktuality", en: "News" },
   "news.pageDesc": { cs: "Aktualizace o expanzi RecPan, technologii, partnerstvích a vůdčím postavení v oblasti recyklace solárních panelů.", en: "Updates on RecPan's expansion, technology, partnerships, and leadership in solar panel recycling." },
 
+  // ── Napsali o nás / In the media ──
+  "media.label": { cs: "XI — NAPSALI O NÁS", en: "XI — IN THE MEDIA" },
+  "media.title": { cs: "Napsali o nás", en: "In the media" },
+  "media.readMore": { cs: "Číst článek", en: "Read article" },
+
   // ── Article page ──
   "article.back": { cs: "Zpět na aktuality", en: "Back to news" },
   "article.notFound": { cs: "Článek nenalezen", en: "Article not found" },
   "article.readTime": { cs: "5 min čtení", en: "5 min read" },
   "article.related": { cs: "Související články", en: "Related articles" },
+  "article.keyFigures": { cs: "Klíčová čísla", en: "Key figures" },
+  "article.mediaLink": { cs: "O otevření závodu psala také média", en: "The opening was also covered by the media" },
+  "article.download": { cs: "Stáhnout", en: "Download" },
 
   // ── Contact form (LogisticsNexus) ──
   "form.label": { cs: "X — Kontakt", en: "X — Contact" },
@@ -195,6 +205,7 @@ export const translations = {
 
   // ── Footer (DataFooter) ──
   "footer.impactLabel": { cs: "Náš dosavadní dopad", en: "Our impact so far" },
+  "footer.impactNote": { cs: "Uvedené hodnoty jsou orientační.", en: "The values shown are indicative." },
   "footer.tonnesRecycled": { cs: "Recyklováno tun", en: "Tonnes recycled" },
   "footer.glass": { cs: "Získané sklo", en: "Recovered glass" },
   "footer.aluminum": { cs: "Získaný hliník", en: "Recovered aluminum" },

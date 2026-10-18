@@ -67,6 +67,9 @@ export default function HeroSection({ onNavigate }) {
             <p className="font-heading text-4xl font-bold text-brand-green tracking-tight">
               {displayValue.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} t
             </p>
+            <p className="font-heading text-[10px] text-obsidian/30 mt-1">
+              {t("hero.counterNote")}
+            </p>
           </motion.div>
 
           <motion.div

@@ -14,6 +14,7 @@ import LogisticsNexus from "@/components/site/LogisticsNexus";
 import PanelHandover from "@/components/site/PanelHandover";
 import DataFooter from "@/components/site/DataFooter";
 import FacilitySection from "@/components/site/FacilitySection";
+import MediaCoverage from "@/components/site/MediaCoverage";
 import SEO, { organizationData, WEBSITE_DATA, LOCAL_BUSINESS_DATA } from "@/components/SEO";
 import { useLanguage } from "@/hooks/useLanguage";
 import { buildPath } from "@/lib/i18n/routes";
@@ -59,6 +60,7 @@ export default function Home() {
       <CircularityMatrix />
       <MaterialLedger />
       <LatestNews />
+      <MediaCoverage />
       <TrustSection />
       <FacilitySection />
       <PanelHandover onNavigate={scrollTo} />

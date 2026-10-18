@@ -4,6 +4,7 @@ const articleSlugCs = {
   "recpan-at-intersolar-europe": "recpan-na-intersolar-europe",
   "new-recycling-facility-under-development": "vystavba-prvniho-recyklacniho-centra",
   "recpan-opens-pribram-recycling-plant": "otevreni-zavodu-pribram",
+  "recpan-opens-first-plant-pribram": "otevreni-prvniho-zavodu-pribram",
 };
 
 // Reverse mapping (CS slug → EN slug)

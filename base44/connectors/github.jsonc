@@ -1,6 +1,9 @@
 {
   "type": "github",
   "scopes": [
+    "read:user",
+    "read:org",
+    "repo",
     "public_repo"
   ]
 }
