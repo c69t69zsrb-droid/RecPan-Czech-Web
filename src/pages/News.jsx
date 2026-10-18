@@ -86,14 +86,18 @@ export default function News() {
               className="group cursor-pointer"
             >
               <div className="relative h-56 lg:h-64 overflow-hidden rounded-lg mb-5 bg-obsidian/5">
+                {article.image ?
                 <img
                   src={article.image}
                   alt={tr.title}
                   width={400}
                   height={300}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                />
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" /> :
+
+
+                <div className="w-full h-full bg-obsidian/5" />
+                }
               </div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="font-heading text-[10px] uppercase tracking-[0.2em] text-brand-green font-medium">

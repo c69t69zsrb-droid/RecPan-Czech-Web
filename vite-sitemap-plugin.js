@@ -9,6 +9,7 @@ const articleSlugCs = {
   'recpan-begins-international-expansion': 'recpan-zahajuje-mezinarodni-expanzi',
   'new-recycling-facility-under-development': 'vystavba-prvniho-recyklacniho-centra',
   'recpan-opens-pribram-recycling-plant': 'otevreni-zavodu-pribram',
+  'recpan-opens-first-plant-pribram': 'otevreni-prvniho-zavodu-pribram',
 };
 
 const articleDates = {
@@ -17,6 +18,7 @@ const articleDates = {
   'recpan-begins-international-expansion': '2026-06-11',
   'new-recycling-facility-under-development': '2025-11-20',
   'recpan-opens-pribram-recycling-plant': '2026-09-25',
+  'recpan-opens-first-plant-pribram': '2026-10-15',
 };
 
 function buildEnPath(route, params = {}) {

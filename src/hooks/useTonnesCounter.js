@@ -9,6 +9,14 @@ import { animate } from "framer-motion";
 const START_DATE = "2026-09-25 22:42";
 const BASE_TONNES = 37.5;
 
+// ── Pause window ────────────────────────────────────────────
+// The counter is paused between PAUSE_START and PAUSE_END: the displayed
+// value stays frozen at its value at PAUSE_START. The paused period does not
+// count as operating time, so when the window ends the counter continues
+// from the same value (it does not jump forward).
+const PAUSE_START = "2026-10-17 12:00";
+const PAUSE_END = "2026-11-16 12:00";
+
 function parsePragueDate(str) {
   const [datePart, timePart] = str.split(" ");
   const [y, mo, d] = datePart.split("-").map(Number);
@@ -46,10 +54,17 @@ function calculateTonnes() {
   const start = parsePragueDate(START_DATE).getTime();
   const now = Date.now();
   if (start > now) return BASE_TONNES;
+  const pauseStart = parsePragueDate(PAUSE_START).getTime();
+  const pauseEnd = parsePragueDate(PAUSE_END).getTime();
   const HOUR = 3600000;
   let operatingMs = 0;
   let cursor = start;
   while (cursor < now) {
+    // Skip the paused window entirely (no operating time is counted inside it).
+    if (cursor >= pauseStart && cursor < pauseEnd) {
+      cursor = Math.min(pauseEnd, now);
+      continue;
+    }
     const parts = getPragueParts(new Date(cursor));
     const isOperating = parts.weekday !== "Sat" && parts.weekday !== "Sun" && parts.hour >= 7 && parts.hour < 21;
     const msToNextHour = (60 - parts.minute) * 60000;

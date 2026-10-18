@@ -63,6 +63,9 @@ export default function DataFooter({ onNavigate }) {
             </div>
           )}
         </div>
+        <p className="font-heading text-[9px] text-titanium/40 mt-6">
+          {t("footer.impactNote")}
+        </p>
       </div>
 
       {/* Main footer content */}
