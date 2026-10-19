@@ -36,7 +36,7 @@ export default function MediaCoverage() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {articles.map((article, i) => (
             <motion.a
               key={article.url}
@@ -47,29 +47,44 @@ export default function MediaCoverage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group flex flex-col border border-obsidian/10 rounded-lg p-6 md:p-8 hover:border-brand-green/50 hover:-translate-y-1 transition-all duration-300"
+              className="group flex flex-col overflow-hidden border border-obsidian/10 rounded-lg hover:border-brand-green/50 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
-                <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">
-                  {article.medium}
-                </span>
-                <span className="font-heading text-[10px] text-obsidian/30">
-                  {formatDate(article.date)}
+              {article.image && (
+                <div className="relative h-36 md:h-44 overflow-hidden bg-obsidian/5">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col flex-1 p-6 md:p-8">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-5">
+                  <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+                    {article.medium}
+                  </span>
+                  <span className="font-heading text-[10px] text-obsidian/30">
+                    {formatDate(article.date)}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.02em] leading-snug text-obsidian mb-3 group-hover:text-brand-green transition-colors duration-300">
+                  {article.title}
+                </h3>
+
+                <p className="font-heading text-sm font-light leading-relaxed text-obsidian/50 line-clamp-2 mb-6">
+                  {article.perex}
+                </p>
+
+                <span className="mt-auto font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/50 group-hover:text-brand-green transition-colors duration-300 flex items-center gap-2">
+                  {t("media.readMore")}
+                  <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
-
-              <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-[-0.02em] leading-snug text-obsidian mb-3 group-hover:text-brand-green transition-colors duration-300">
-                {article.title}
-              </h3>
-
-              <p className="font-heading text-sm font-light leading-relaxed text-obsidian/50 line-clamp-2 mb-6">
-                {article.perex}
-              </p>
-
-              <span className="mt-auto font-heading text-xs font-medium uppercase tracking-[0.15em] text-obsidian/50 group-hover:text-brand-green transition-colors duration-300 flex items-center gap-2">
-                {t("media.readMore")}
-                <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-              </span>
             </motion.a>
           ))}
         </div>
