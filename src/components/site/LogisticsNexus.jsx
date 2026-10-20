@@ -5,7 +5,7 @@ import { ArrowRight, Check, AlertCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { buildPath } from "@/lib/i18n/routes";
 
-const initialFormData = { name: "", company: "", email: "", phone: "", volume: "", quantity: "", location: "", country: "", panelTypeField: "", timeline: "", notes: "" };
+const initialFormData = { name: "", company: "", email: "", phone: "", volume: "", quantity: "", location: "", country: "", panelTypeField: "", collectiveSystem: "", timeline: "", notes: "" };
 
 export default function LogisticsNexus({ enquiryIntent }) {
   const { t, language } = useLanguage();
@@ -54,6 +54,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
             location: formData.location,
             country: formData.country,
             panelTypeField: formData.panelTypeField,
+            collectiveSystem: formData.collectiveSystem,
             timeline: formData.timeline,
             notes: formData.notes,
           }),
@@ -127,6 +128,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
     { key: "quantity", label: t("form.quantity"), placeholder: t("form.quantityPlaceholder"), type: "text" },
     { key: "location", label: t("form.location"), placeholder: t("form.locationPlaceholder"), type: "text" },
     { key: "country", label: t("form.country"), placeholder: t("form.countryPlaceholder"), type: "text" },
+    { key: "collectiveSystem", label: t("form.collectiveSystem"), placeholder: t("form.collectiveSystemPlaceholder"), type: "text" },
     { key: "timeline", label: t("form.timeline"), placeholder: t("form.timelinePlaceholder"), type: "text" },
   ];
 
@@ -252,7 +254,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
             <div className="space-y-8">
               {fields.map((field) => (
                 <div key={field.key}>
-                  <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
+                  <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/70 block mb-2">
                     {field.label}
                   </label>
                   <input
@@ -260,13 +262,13 @@ export default function LogisticsNexus({ enquiryIntent }) {
                     placeholder={field.placeholder}
                     value={formData[field.key]}
                     onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
-                    className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/15 transition-colors"
+                    className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/35 transition-colors"
                   />
                 </div>
               ))}
 
               <div>
-                <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
+                <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/70 block mb-2">
                   {t("form.panelTypeField")}
                 </label>
                 <select
@@ -282,7 +284,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
               </div>
 
               <div>
-                <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/30 block mb-2">
+                <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/70 block mb-2">
                   {t("form.notes")}
                 </label>
                 <textarea
@@ -290,7 +292,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/15 transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/35 transition-colors resize-none"
                 />
               </div>
             </div>

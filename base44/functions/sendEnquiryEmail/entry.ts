@@ -18,6 +18,7 @@ Deno.serve(async (req) => {
     const quantity = (data.quantity || "").trim();
     const location = (data.location || "").trim();
     const panelTypeField = (data.panelTypeField || "").trim();
+    const collectiveSystem = (data.collectiveSystem || "").trim();
     const timeline = (data.timeline || "").trim();
     const notes = (data.notes || "").trim();
 
@@ -49,10 +50,11 @@ Deno.serve(async (req) => {
       `Company: ${company || "—"}`,
       `Email: ${email}`,
       `Phone: ${phone || "—"}`,
-      `Estimated volume: ${volume || "—"}`,
-      `Approximate quantity: ${quantity || "—"}`,
+      `Estimated volume (t/kg): ${volume || "—"}`,
+      `Number of panels (pcs): ${quantity || "—"}`,
       `Location: ${location || "—"}`,
       `Panel type: ${panelTypeField || "—"}`,
+      `Collective system: ${collectiveSystem || "—"}`,
       `Country: ${country || "—"}`,
       `Expected timeline: ${timeline || "—"}`,
       `Message: ${notes || "—"}`,
