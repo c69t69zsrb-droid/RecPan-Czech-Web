@@ -11,7 +11,7 @@ const whatWeOffer = {
     "Dlouhodobou perspektivu a jistotu do budoucna",
     "Moderní pracovní prostředí v nově budovaném provozu v Příbrami",
     "Práce s unikátní automatickou recyklační linkou",
-    "Možnost profesního růstu při expanzi firmy do zahraničí",
+    "Možnost profesního růstu při expanzi firmy do dalších zemí",
     "Adekvátní mzdové ohodnocení odpovídající kvalifikaci a praxi",
   ],
   en: [
@@ -19,7 +19,7 @@ const whatWeOffer = {
     "Long-term perspective and future security",
     "Modern work environment in a newly built facility in Příbram",
     "Work with a unique automated recycling line",
-    "Career growth opportunities as the company expands internationally",
+    "Career growth opportunities as the company expands into other countries",
     "Competitive compensation matching qualifications and experience",
   ],
 };

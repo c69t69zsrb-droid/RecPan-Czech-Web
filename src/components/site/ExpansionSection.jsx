@@ -7,9 +7,9 @@ export default function ExpansionSection() {
 
   const locations = [
   { statusKey: "current", country: t("expansion.czechia"), date: null },
-  { statusKey: "expansion", country: t("expansion.spain"), date: "7 / 2027" },
-  { statusKey: "expansion", country: t("expansion.italy"), date: "8 / 2027" },
-  { statusKey: "expansion", country: t("expansion.australia"), date: "10 / 2027" }];
+  { statusKey: "expansion", country: t("expansion.otherCountry"), date: "7 / 2027" },
+  { statusKey: "expansion", country: t("expansion.otherCountry"), date: "8 / 2027" },
+  { statusKey: "expansion", country: t("expansion.otherCountry"), date: "10 / 2027" }];
 
 
   return (
@@ -40,7 +40,7 @@ export default function ExpansionSection() {
           <div className="grid md:grid-cols-4 gap-16 md:gap-12">
             {locations.map((location, i) =>
             <motion.div
-              key={location.country}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
