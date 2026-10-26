@@ -178,12 +178,14 @@ export const translations = {
   "form.successDesc": { cs: "Děkujeme za vaši poptávku. Přijali jsme vaši zprávu a budeme vás kontaktovat co nejdříve.", en: "Thank you for your enquiry. We have received your message and will get back to you as soon as possible." },
   "form.errorDesc": { cs: "Při odesílání poptávky se něco pokazilo. Zkuste to prosím znovu nebo nás kontaktujte přímo na office@rec-pan.cz.", en: "Something went wrong while sending your enquiry. Please try again or contact us directly at office@rec-pan.cz." },
   "form.orgTypes": {
-    cs: ["Provozovatel solární farmy", "Instalační společnost", "Výrobce", "Vláda / Obec", "Jiné"],
-    en: ["Solar farm operator", "Installation company", "Manufacturer", "Government / Municipality", "Other"],
+    cs: ["Provozovatel solární farmy", "Instalační společnost", "Výrobce", "Jiné"],
+    en: ["Solar farm operator", "Installation company", "Manufacturer", "Other"],
   },
+  // POZNÁMKA (vrátit ~26. 4. 2027): amorfní panely byly dočasně odebrány z poptávkového formuláře.
+  // Při návratu doplnit "Amorfní" / "Amorphous" zpět do form.panelTypes i form.panelTypeOptions.
   "form.panelTypes": {
-    cs: ["Monokrystalické", "Polykrystalické", "Amorfní"],
-    en: ["Monocrystalline", "Polycrystalline", "Amorphous"],
+    cs: ["Monokrystalické", "Polykrystalické"],
+    en: ["Monocrystalline", "Polycrystalline"],
   },
   "form.enquiryType": { cs: "Typ poptávky", en: "Enquiry type" },
   "form.enquiryGeneral": { cs: "Obecná poptávka", en: "General enquiry" },
@@ -193,7 +195,7 @@ export const translations = {
   "form.location": { cs: "Lokalita (město / region / země)", en: "Location (city / region / country)" },
   "form.locationPlaceholder": { cs: "např. Brno, Jihomoravský kraj", en: "e.g. Brno, South Moravia" },
   "form.panelTypeField": { cs: "Typ panelů", en: "Panel type" },
-  "form.panelTypeOptions": { cs: ["Krystalické", "Amorfní", "Nevím"], en: ["Crystalline", "Amorphous", "Not sure"] },
+  "form.panelTypeOptions": { cs: ["Krystalické", "Nevím"], en: ["Crystalline", "Not sure"] },
   "form.collectiveSystem": { cs: "Kolektivní systém", en: "Collective system" },
   "form.collectiveSystemPlaceholder": { cs: "např. Elektrowin, ASEKOL", en: "e.g. Elektrowin, ASEKOL" },
   "form.timeline": { cs: "Předpokládaný termín", en: "Expected timeline" },

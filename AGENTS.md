@@ -28,6 +28,10 @@ npx skills add base44/skills
 
 - Use `base44 dev` as the default local development command when you need the local Base44 backend. It can run the backend and frontend together.
 - When docs or code mention the frontend being started automatically, that usually means the Base44 project config includes `site.serveCommand`, for example `"serveCommand": "npm run dev"` in `base44/config.jsonc`.
+
+## Pending / Temporary Changes
+
+- **Amorphous panels removed from the enquiry form (2026-10-26), restore around 2027-04-26.** The option "Amorfní" / "Amorphous" was temporarily dropped from `form.panelTypes` and `form.panelTypeOptions` in `src/lib/i18n/translations.js`. Add it back to both lists when the six months are up.
 - Use `npm run dev` only for frontend-only work against the hosted Base44 backend.
 - Prefer the existing Base44 CLI workflow over adding new npm scripts for Base44-specific tasks.
 - Reuse the existing SDK client and Vite plugin patterns before adding new Base44 integration paths.
