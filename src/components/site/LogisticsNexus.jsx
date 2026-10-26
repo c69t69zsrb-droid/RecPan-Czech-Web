@@ -17,6 +17,7 @@ export default function LogisticsNexus({ enquiryIntent }) {
   const [consent, setConsent] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [status, setStatus] = useState("idle");
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   useEffect(() => {
     if (enquiryIntent === "takeback") setEnquiryType("takeback");
@@ -27,10 +28,30 @@ export default function LogisticsNexus({ enquiryIntent }) {
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  const requiredFields = [
+    { key: "name", label: () => t("form.contactName") },
+    { key: "company", label: () => t("form.company") },
+    { key: "email", label: () => t("form.email") },
+    { key: "phone", label: () => t("form.phone") },
+    { key: "volume", label: () => `${t("form.volume")} / ${t("form.quantity")}` },
+    { key: "collectiveSystem", label: () => t("form.collectiveSystem") },
+  ];
+
+  const getMissingFields = () =>
+    requiredFields
+      .filter(({ key }) => {
+        if (key === "volume") return !formData.volume.trim() && !formData.quantity.trim();
+        if (key === "email") return !formData.email.trim() || !isValidEmail(formData.email);
+        return !formData[key]?.trim();
+      })
+      .map(({ key }) => key);
+
   const handleSubmit = async () => {
-    if (!formData.name || !formData.email || !isValidEmail(formData.email)) {
+    if (getMissingFields().length > 0 || !consent) {
+      setSubmitAttempted(true);
       return;
     }
+    setSubmitAttempted(false);
     setStatus("sending");
     try {
       const response = await fetch(
@@ -119,16 +140,27 @@ export default function LogisticsNexus({ enquiryIntent }) {
     );
   }
 
+  const missingFields = submitAttempted ? getMissingFields() : [];
+  const showValidation = submitAttempted && (missingFields.length > 0 || !consent);
+  const fieldInvalid = (key) => {
+    if (!submitAttempted) return false;
+    if (key === "volume" || key === "quantity") return missingFields.includes("volume");
+    return missingFields.includes(key);
+  };
+  const missingLabels = requiredFields
+    .filter(({ key }) => missingFields.includes(key))
+    .map(({ label }) => label());
+
   const fields = [
-    { key: "name", label: t("form.contactName"), placeholder: t("form.contactNamePlaceholder"), type: "text" },
-    { key: "company", label: t("form.company"), placeholder: t("form.companyPlaceholder"), type: "text" },
-    { key: "email", label: t("form.email"), placeholder: t("form.emailPlaceholder"), type: "email" },
-    { key: "phone", label: t("form.phone"), placeholder: t("form.phonePlaceholder"), type: "tel" },
-    { key: "volume", label: t("form.volume"), placeholder: t("form.volumePlaceholder"), type: "text" },
-    { key: "quantity", label: t("form.quantity"), placeholder: t("form.quantityPlaceholder"), type: "text" },
+    { key: "name", label: t("form.contactName"), placeholder: t("form.contactNamePlaceholder"), type: "text", required: true },
+    { key: "company", label: t("form.company"), placeholder: t("form.companyPlaceholder"), type: "text", required: true },
+    { key: "email", label: t("form.email"), placeholder: t("form.emailPlaceholder"), type: "email", required: true },
+    { key: "phone", label: t("form.phone"), placeholder: t("form.phonePlaceholder"), type: "tel", required: true },
+    { key: "volume", label: t("form.volume"), placeholder: t("form.volumePlaceholder"), type: "text", required: true },
+    { key: "quantity", label: t("form.quantity"), placeholder: t("form.quantityPlaceholder"), type: "text", required: true },
     { key: "location", label: t("form.location"), placeholder: t("form.locationPlaceholder"), type: "text" },
     { key: "country", label: t("form.country"), placeholder: t("form.countryPlaceholder"), type: "text" },
-    { key: "collectiveSystem", label: t("form.collectiveSystem"), placeholder: t("form.collectiveSystemPlaceholder"), type: "text" },
+    { key: "collectiveSystem", label: t("form.collectiveSystem"), placeholder: t("form.collectiveSystemPlaceholder"), type: "text", required: true },
     { key: "timeline", label: t("form.timeline"), placeholder: t("form.timelinePlaceholder"), type: "text" },
   ];
 
@@ -256,13 +288,16 @@ export default function LogisticsNexus({ enquiryIntent }) {
                 <div key={field.key}>
                   <label className="font-heading text-[10px] uppercase tracking-[0.2em] text-obsidian/70 block mb-2">
                     {field.label}
+                    {field.required && <span className="text-brand-green ml-1">*</span>}
                   </label>
                   <input
                     type={field.type}
                     placeholder={field.placeholder}
                     value={formData[field.key]}
                     onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
-                    className="w-full bg-transparent border-b border-obsidian/20 focus:border-brand-green outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/35 transition-colors"
+                    className={`w-full bg-transparent border-b outline-none pb-3 font-heading text-lg font-medium text-obsidian placeholder:text-obsidian/35 transition-colors ${
+                    fieldInvalid(field.key) ? "border-red-400 focus:border-red-500" : "border-obsidian/20 focus:border-brand-green"}`
+                    }
                   />
                 </div>
               ))}
@@ -305,10 +340,22 @@ export default function LogisticsNexus({ enquiryIntent }) {
                 </p>
               </div>
             )}
+            {showValidation && (
+              <div role="alert" className="flex items-start gap-3 mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                <AlertCircle size={18} className="text-amber-600 shrink-0 mt-0.5" />
+                <div className="font-heading text-sm text-amber-800 leading-relaxed">
+                  <p>
+                    {t("form.requiredInvalid")}
+                    {missingLabels.length > 0 && `: ${missingLabels.join(", ")}`}
+                  </p>
+                  {!consent && <p className="mt-1">{t("form.consentRequired")}</p>}
+                </div>
+              </div>
+            )}
             <div className="flex items-center gap-6 mt-10">
               <button
                 onClick={handleSubmit}
-                disabled={!formData.name || !formData.email || !isValidEmail(formData.email) || !consent || status === "sending"}
+                disabled={status === "sending"}
                 className="group flex items-center gap-3 bg-brand-green text-white px-8 py-4 font-heading text-xs font-medium uppercase tracking-[0.15em] hover:bg-obsidian transition-colors disabled:opacity-30 disabled:cursor-not-allowed rounded-lg"
               >
                 {status === "sending" ? (

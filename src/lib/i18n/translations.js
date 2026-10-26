@@ -202,6 +202,7 @@ export const translations = {
   "form.consent": { cs: "Souhlasím se zpracováním osobních údajů podle", en: "I agree to the processing of personal data according to the" },
   "form.consentLink": { cs: "zásad ochrany osobních údajů", en: "Privacy Policy" },
   "form.consentRequired": { cs: "Pro odeslání je potřeba souhlas se zpracováním osobních údajů.", en: "Please agree to the processing of personal data to submit." },
+  "form.requiredInvalid": { cs: "Formulář nebyl odeslán. Vyplňte prosím všechna povinná pole označená *", en: "The form was not sent. Please fill in all required fields marked *" },
 
   // ── Footer (DataFooter) ──
   "footer.impactLabel": { cs: "Náš dosavadní dopad", en: "Our impact so far" },
